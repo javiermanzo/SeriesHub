@@ -1,0 +1,41 @@
+PODS:
+  - Alamofire (4.4.0)
+  - ARSLineProgress (2.1.0)
+  - DGElasticPullToRefresh (1.1)
+  - DynamicColor (3.2.1)
+  - IOStickyHeader (1.0.1)
+  - Kingfisher (3.5.2)
+  - Realm (2.4.4):
+    - Realm/Headers (= 2.4.4)
+  - Realm/Headers (2.4.4)
+  - RealmSwift (2.4.4):
+    - Realm (= 2.4.4)
+  - SwiftyJSON (3.1.4)
+  - Whisper (4.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - ARSLineProgress (~> 2.0)
+  - DGElasticPullToRefresh
+  - DynamicColor
+  - IOStickyHeader
+  - Kingfisher
+  - RealmSwift
+  - SwiftyJSON
+  - Whisper
+
+SPEC CHECKSUMS:
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  ARSLineProgress: 44dd1ec9994a4ddea7767944ecb9001046ecd697
+  DGElasticPullToRefresh: 28f11a6026302a90f8ffebbc6e24748e584dddd3
+  DynamicColor: 4786d650c69da6c3f2cbfe068348288ec4e5521f
+  IOStickyHeader: 8b48006d9dbf0e274b872246ea6034783dacd1f5
+  Kingfisher: 9950e382c500b6834ce004c7c4131c444e90c3a1
+  Realm: 5a280a1f5a9a3c267bebf4f41ee47911137703d7
+  RealmSwift: 0c02b9f2d4be4301c497ed10e53a0580584eb1dd
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  Whisper: '08be92623311f8e53201e62e17f6d7b9599a4714'
+
+PODFILE CHECKSUM: 8227446762aa4517a2dda8cf47b20afb4a174bb4
+
+COCOAPODS: 1.2.0

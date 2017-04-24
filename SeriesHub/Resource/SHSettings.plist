@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>api_key</key>
+	<string>05ab980bde9f96ccf5b3acac86a717b1</string>
+	<key>base_url</key>
+	<string>http://api.themoviedb.org</string>
+	<key>first_color</key>
+	<string>F4900D</string>
+	<key>second_color</key>
+	<string>202020</string>
+</dict>
+</plist>

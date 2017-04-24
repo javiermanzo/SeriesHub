@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SHDetailsViewController" customModule="SeriesHub" customModuleProvider="target">
+            <connections>
+                <outlet property="backgroundAlphaView" destination="Kqh-k4-7sK" id="TdE-Y7-gHx"/>
+                <outlet property="backgroundImageView" destination="Yq1-IU-gSJ" id="F2k-yu-BEA"/>
+                <outlet property="collectionView" destination="3c3-Gi-djL" id="VyA-C5-G41"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yq1-IU-gSJ">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kqh-k4-7sK">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" red="0.8862745098" green="0.027450980390000001" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="3c3-Gi-djL">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <gestureRecognizers/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="I8e-5c-Skb" customClass="IOStickyHeaderFlowLayout" customModule="SeriesHub" customModuleProvider="target">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="3c3-Gi-djL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9hQ-OP-TLY"/>
+                <constraint firstItem="Yq1-IU-gSJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="B0I-9D-vfL"/>
+                <constraint firstItem="Yq1-IU-gSJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BrI-yy-dz7"/>
+                <constraint firstItem="Kqh-k4-7sK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="CZ9-z3-dCA"/>
+                <constraint firstAttribute="trailing" secondItem="Kqh-k4-7sK" secondAttribute="trailing" id="KHt-w0-phb"/>
+                <constraint firstItem="Kqh-k4-7sK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="UW7-Hy-kt1"/>
+                <constraint firstItem="3c3-Gi-djL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Yqr-5s-b4y"/>
+                <constraint firstAttribute="bottom" secondItem="Yq1-IU-gSJ" secondAttribute="bottom" id="Zro-7P-VCE"/>
+                <constraint firstAttribute="bottom" secondItem="3c3-Gi-djL" secondAttribute="bottom" id="aZO-Hc-R8U"/>
+                <constraint firstAttribute="trailing" secondItem="Yq1-IU-gSJ" secondAttribute="trailing" id="cNS-RL-aSG"/>
+                <constraint firstAttribute="trailing" secondItem="3c3-Gi-djL" secondAttribute="trailing" id="hiO-CV-RY4"/>
+                <constraint firstAttribute="bottom" secondItem="Kqh-k4-7sK" secondAttribute="bottom" id="ycT-xy-wmQ"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+</document>
