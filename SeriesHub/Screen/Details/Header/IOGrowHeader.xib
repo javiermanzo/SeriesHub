@@ -48,26 +48,16 @@
                                 <color key="textColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nj1-Hz-rww">
-                                <rect key="frame" x="8" y="18" width="36" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="36" id="CeE-c3-EkB"/>
-                                    <constraint firstAttribute="height" constant="36" id="Sjn-bW-pLg"/>
-                                </constraints>
-                                <state key="normal" image="arrow-down"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.15686274510000001" green="0.2156862745" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Gva-YX-2ou" secondAttribute="trailing" constant="8" id="CSK-Gc-4oY"/>
                             <constraint firstItem="JvZ-mc-R2Y" firstAttribute="centerX" secondItem="fGl-td-xIl" secondAttribute="centerX" id="QaQ-pL-Bqb"/>
                             <constraint firstItem="Gva-YX-2ou" firstAttribute="leading" secondItem="fGl-td-xIl" secondAttribute="leading" constant="8" id="TOs-XV-vOO"/>
-                            <constraint firstItem="nj1-Hz-rww" firstAttribute="top" secondItem="fGl-td-xIl" secondAttribute="top" constant="18" id="UUl-QU-yXd"/>
                             <constraint firstItem="JvZ-mc-R2Y" firstAttribute="centerY" secondItem="fGl-td-xIl" secondAttribute="centerY" constant="-15" id="cxb-q8-1hT"/>
                             <constraint firstItem="Yvb-aV-xhS" firstAttribute="centerX" secondItem="fGl-td-xIl" secondAttribute="centerX" id="hJ4-bO-wBs"/>
                             <constraint firstItem="Gva-YX-2ou" firstAttribute="top" secondItem="JvZ-mc-R2Y" secondAttribute="bottom" constant="8" id="iFD-Cn-sYJ"/>
                             <constraint firstItem="Yvb-aV-xhS" firstAttribute="top" secondItem="Gva-YX-2ou" secondAttribute="bottom" constant="2" id="sJf-cF-Wmp"/>
-                            <constraint firstItem="nj1-Hz-rww" firstAttribute="leading" secondItem="fGl-td-xIl" secondAttribute="leading" constant="8" id="z6H-m1-hgV"/>
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paB-Ue-TBV">
@@ -95,7 +85,6 @@
             </constraints>
             <size key="customSize" width="320" height="220"/>
             <connections>
-                <outlet property="closeButton" destination="nj1-Hz-rww" id="GCn-Wa-2qx"/>
                 <outlet property="constraintImgSize" destination="51k-Om-BGX" id="s4G-p4-Nhe"/>
                 <outlet property="containerView" destination="fGl-td-xIl" id="E87-ET-W4O"/>
                 <outlet property="imgPhoto" destination="JvZ-mc-R2Y" id="QHh-hg-lic"/>
@@ -106,7 +95,4 @@
             <point key="canvasLocation" x="454" y="361"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="arrow-down" width="36" height="36"/>
-    </resources>
 </document>

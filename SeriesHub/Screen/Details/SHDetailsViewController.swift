@@ -16,15 +16,16 @@ class SHDetailsViewController: UIViewController {
     
     var colors: UIImageColors!
     
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var backgroundAlphaView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     let headerNib = UINib(nibName: "IOGrowHeader", bundle: Bundle.main)
     
+    var handlePan: ((_ panGestureRecognizer: UIPanGestureRecognizer) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         self.backgroundImageView.kf.setImage(with: URL(string: serie.backgroundImageUrl), placeholder: nil, options: [.transition(.fade(1))], progressBlock: nil) { (image, error, cache, url) in
             
@@ -64,9 +65,12 @@ class SHDetailsViewController: UIViewController {
         self.collectionView.register(self.headerNib, forSupplementaryViewOfKind: IOStickyHeaderParallaxHeader, withReuseIdentifier: IOGrowHeader.id)
     }
     
-    func close() {
+    @IBAction func closeAction(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
-        
+    }
+    
+    @IBAction func dragTop(_ sender: UIPanGestureRecognizer) {
+        self.handlePan?(sender)
     }
     
     func subscribeAction() {
@@ -136,8 +140,6 @@ extension SHDetailsViewController: UICollectionViewDataSource, UICollectionViewD
                 cell.subscribeButton.setUnselected(color: color)
                 
             }
-            
-            cell.closeButton.addTarget(self, action: #selector(close), for: .touchUpInside)
             cell.subscribeButton.addTarget(self, action: #selector(subscribeAction), for: .touchUpInside)
             
             

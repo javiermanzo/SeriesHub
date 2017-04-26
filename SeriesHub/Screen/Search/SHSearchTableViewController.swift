@@ -25,7 +25,7 @@ class SHSearchTableViewController: UITableViewController  {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-         self.perform(#selector(showKeyboard), with: nil, afterDelay: 0.300)
+         self.perform(#selector(showKeyboard), with: nil, afterDelay: 0.100)
     }
     
     func configureSearchBar() {

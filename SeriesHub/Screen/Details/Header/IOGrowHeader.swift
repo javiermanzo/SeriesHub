@@ -15,7 +15,6 @@ import Kingfisher
 class IOGrowHeader: UICollectionViewCell {
     
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var imgPhoto: UIImageView!

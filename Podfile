@@ -10,6 +10,7 @@ def myPods
     pod 'IOStickyHeader'
     pod 'DynamicColor'
     pod 'RealmSwift'
+    pod 'AICustomViewControllerTransition'
 
 end
 
