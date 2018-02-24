@@ -11,11 +11,8 @@ import UIKit
 class SHDetailsOverviewCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var overviewTextView: UITextView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-
     }
-    
-
 }

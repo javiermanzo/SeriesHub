@@ -42,7 +42,6 @@
 		2E70D0F81EADAA4500B80184 /* IOStickyHeaderFlowLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E70D0F71EADAA4500B80184 /* IOStickyHeaderFlowLayoutAttributes.swift */; };
 		2E70D0FC1EADAE9700B80184 /* SHDetailsOverviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E70D0FA1EADAE9700B80184 /* SHDetailsOverviewCollectionViewCell.swift */; };
 		2E70D0FD1EADAE9700B80184 /* SHDetailsOverviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E70D0FB1EADAE9700B80184 /* SHDetailsOverviewCollectionViewCell.xib */; };
-		2EDB931B1EADE00B0021AF0D /* UIImageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB931A1EADE00A0021AF0D /* UIImageColors.swift */; };
 		2EDB931D1EADE1F00021AF0D /* UIButton-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB931C1EADE1F00021AF0D /* UIButton-Extension.swift */; };
 		2EDB93201EADEB630021AF0D /* SHSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB931E1EADEB630021AF0D /* SHSearchTableViewController.swift */; };
 		2EDB93211EADEB630021AF0D /* SHSearchTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EDB931F1EADEB630021AF0D /* SHSearchTableViewController.xib */; };
@@ -55,6 +54,7 @@
 		2EDB933E1EAE298F0021AF0D /* SHHomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB933C1EAE298F0021AF0D /* SHHomeCollectionViewCell.swift */; };
 		2EDB933F1EAE298F0021AF0D /* SHHomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EDB933D1EAE298F0021AF0D /* SHHomeCollectionViewCell.xib */; };
 		579924659992823CD3086420 /* Pods_SeriesHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BADA1C640622782FD9FA47F3 /* Pods_SeriesHub.framework */; };
+		83AD5BE82041082E006C4B64 /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AD5BE72041082E006C4B64 /* UIColor-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,8 +115,6 @@
 		2E70D0F71EADAA4500B80184 /* IOStickyHeaderFlowLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IOStickyHeaderFlowLayoutAttributes.swift; sourceTree = "<group>"; };
 		2E70D0FA1EADAE9700B80184 /* SHDetailsOverviewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHDetailsOverviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E70D0FB1EADAE9700B80184 /* SHDetailsOverviewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHDetailsOverviewCollectionViewCell.xib; sourceTree = "<group>"; };
-		2EDB93191EADE00A0021AF0D /* UIImageColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageColors.h; sourceTree = "<group>"; };
-		2EDB931A1EADE00A0021AF0D /* UIImageColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageColors.swift; sourceTree = "<group>"; };
 		2EDB931C1EADE1F00021AF0D /* UIButton-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton-Extension.swift"; sourceTree = "<group>"; };
 		2EDB931E1EADEB630021AF0D /* SHSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHSearchTableViewController.swift; sourceTree = "<group>"; };
 		2EDB931F1EADEB630021AF0D /* SHSearchTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHSearchTableViewController.xib; sourceTree = "<group>"; };
@@ -128,6 +126,7 @@
 		2EDB93391EAE1F0A0021AF0D /* SHHomeHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHHomeHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		2EDB933C1EAE298F0021AF0D /* SHHomeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHHomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		2EDB933D1EAE298F0021AF0D /* SHHomeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHHomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		83AD5BE72041082E006C4B64 /* UIColor-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
 		ACE0ED732848D5F3AB2FA71C /* Pods-SeriesHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeriesHub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SeriesHub/Pods-SeriesHub.debug.xcconfig"; sourceTree = "<group>"; };
 		BADA1C640622782FD9FA47F3 /* Pods_SeriesHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SeriesHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA836BA0A979360C5A8B7531 /* Pods-SeriesHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeriesHub.release.xcconfig"; path = "Pods/Target Support Files/Pods-SeriesHub/Pods-SeriesHub.release.xcconfig"; sourceTree = "<group>"; };
@@ -185,14 +184,12 @@
 			isa = PBXGroup;
 			children = (
 				2E70D0A21EAD72A500B80184 /* Extension */,
-				2EDB930E1EADD8C80021AF0D /* External */,
 				2E70D0A31EAD72A500B80184 /* Helper */,
 				2E70D0A41EAD72A500B80184 /* Model */,
 				2E70D0A51EAD72A500B80184 /* Request */,
 				2E70D0A61EAD72A500B80184 /* Resource */,
 				2E70D0A91EAD72A500B80184 /* Screen */,
 				2E70D0AA1EAD72A500B80184 /* Storyboard */,
-				2E70D0AD1EAD72A500B80184 /* View */,
 				2E60D42F1EAD71080066C78E /* AppDelegate.swift */,
 			);
 			path = SeriesHub;
@@ -226,6 +223,7 @@
 				2E70D0BA1EAD72F300B80184 /* UIViewController-Extension.swift */,
 				2E70D0E81EADA39E00B80184 /* UIImageView-Extension.swift */,
 				2EDB931C1EADE1F00021AF0D /* UIButton-Extension.swift */,
+				83AD5BE72041082E006C4B64 /* UIColor-Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -289,13 +287,6 @@
 				2E70D0AC1EAD72A500B80184 /* Main.storyboard */,
 			);
 			path = Storyboard;
-			sourceTree = "<group>";
-		};
-		2E70D0AD1EAD72A500B80184 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		2E70D0BE1EAD738600B80184 /* Core */ = {
@@ -391,23 +382,6 @@
 				2E70D0FB1EADAE9700B80184 /* SHDetailsOverviewCollectionViewCell.xib */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		2EDB930E1EADD8C80021AF0D /* External */ = {
-			isa = PBXGroup;
-			children = (
-				2EDB93181EADE00A0021AF0D /* UIImageColors */,
-			);
-			path = External;
-			sourceTree = "<group>";
-		};
-		2EDB93181EADE00A0021AF0D /* UIImageColors */ = {
-			isa = PBXGroup;
-			children = (
-				2EDB93191EADE00A0021AF0D /* UIImageColors.h */,
-				2EDB931A1EADE00A0021AF0D /* UIImageColors.swift */,
-			);
-			path = UIImageColors;
 			sourceTree = "<group>";
 		};
 		2EDB93221EADEB6F0021AF0D /* Cell */ = {
@@ -517,7 +491,6 @@
 				TargetAttributes = {
 					2E60D42B1EAD71080066C78E = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = BWWV7CTR2S;
 						ProvisioningStyle = Automatic;
 					};
 					2E60D43F1EAD71080066C78E = {
@@ -596,9 +569,26 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SeriesHub/Pods-SeriesHub-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AICustomViewControllerTransition/AICustomViewControllerTransition.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityIndicator/AlamofireNetworkActivityIndicator.framework",
+				"${BUILT_PRODUCTS_DIR}/IOStickyHeader/IOStickyHeader.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AICustomViewControllerTransition.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityIndicator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IOStickyHeader.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -611,13 +601,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SeriesHub-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F8E56182C2BE6A6322D8E7DB /* [CP] Copy Pods Resources */ = {
@@ -652,9 +645,9 @@
 				2E70D0D71EAD96FE00B80184 /* SHGetConfigurationRequest.swift in Sources */,
 				2E70D0BC1EAD72F300B80184 /* UIStoryboard-Extension.swift in Sources */,
 				2E70D0CA1EAD935800B80184 /* SHRequestHelper.swift in Sources */,
+				83AD5BE82041082E006C4B64 /* UIColor-Extension.swift in Sources */,
 				2E70D0C41EAD740D00B80184 /* SHSerie.swift in Sources */,
 				2E70D0E91EADA39E00B80184 /* UIImageView-Extension.swift in Sources */,
-				2EDB931B1EADE00B0021AF0D /* UIImageColors.swift in Sources */,
 				2EDB93201EADEB630021AF0D /* SHSearchTableViewController.swift in Sources */,
 				2E70D0DD1EAD9A3A00B80184 /* SHNavigationController.swift in Sources */,
 				2E70D0FC1EADAE9700B80184 /* SHDetailsOverviewCollectionViewCell.swift in Sources */,
@@ -809,12 +802,12 @@
 			baseConfigurationReference = ACE0ED732848D5F3AB2FA71C /* Pods-SeriesHub.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = BWWV7CTR2S;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/SeriesHub/Resource/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.javiermanzo.SeriesHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -824,12 +817,12 @@
 			baseConfigurationReference = FA836BA0A979360C5A8B7531 /* Pods-SeriesHub.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = BWWV7CTR2S;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/SeriesHub/Resource/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.javiermanzo.SeriesHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

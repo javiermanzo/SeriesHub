@@ -18,7 +18,7 @@ class SHSearchTableViewController: UITableViewController  {
 
         self.tableView.tableFooterView = UIView()
                 
-        self.tableView.register(SHSearchTableViewCell.cellNib, forCellReuseIdentifier: SHSearchTableViewCell.id)
+        self.tableView.register(SHSearchTableViewCell.cellNib, forCellReuseIdentifier: SHSearchTableViewCell.idCell)
         
         self.configureSearchBar()
     }
@@ -62,7 +62,7 @@ class SHSearchTableViewController: UITableViewController  {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: SHSearchTableViewCell.id, for: indexPath) as! SHSearchTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: SHSearchTableViewCell.idCell, for: indexPath) as! SHSearchTableViewCell
 
         let serie = self.listSeries[indexPath.row] as! SHSerie
         
@@ -84,18 +84,14 @@ class SHSearchTableViewController: UITableViewController  {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let cell = tableView.cellForRow(at: indexPath) as! SHSearchTableViewCell
-        let colors = cell.serieImageView.image?.getColors()
-        
         let vc = SHDetailsViewController.instanceWithDefaultNib()
         let serie = self.listSeries[indexPath.row] as! SHSerie
         vc.serie = serie
-        vc.colors = colors
         self.present(vc, animated: true, completion: nil)
         
     }
     
-    func showKeyboard() {
+    @objc func showKeyboard() {
         self.searchController.searchBar.becomeFirstResponder()
     }
     
@@ -103,7 +99,7 @@ class SHSearchTableViewController: UITableViewController  {
         self.searchController.searchBar.resignFirstResponder()
     }
     
-    func subscribeAction(sender:UIButton) {
+    @objc func subscribeAction(sender:UIButton) {
         
         let serie = self.listSeries[sender.tag] as! SHSerie
         

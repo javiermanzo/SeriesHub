@@ -10,12 +10,12 @@ import UIKit
 
 extension UICollectionViewCell {
     
-    static var id: String {
+    static var idCell: String {
         return String(describing: self.self)
     }
     
     static var cellNib: UINib {
-        return UINib(nibName: id, bundle: nil)
+        return UINib(nibName: idCell, bundle: nil)
     }
     
 }

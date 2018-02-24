@@ -10,14 +10,11 @@ import UIKit
 
 
 extension UIViewController {
-    static func instanceWithDefaultNib() -> Self {
-        
-        let className = NSStringFromClass(self as! AnyClass).components(separatedBy:".").last
-        let bundle = Bundle(for: self as! AnyClass)
-        return self.init(nibName: className, bundle: bundle)
+    static internal func instanceWithDefaultNib() -> Self {
+        let className = NSStringFromClass(self as AnyClass).components(separatedBy: ".").last
+        return self.init(nibName: className, bundle: nil)
     }
 }
-
 
 extension UIViewController : StoryboardIdentifiable { }
 

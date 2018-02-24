@@ -11,7 +11,7 @@ import Kingfisher
 import RealmSwift
 
 protocol SHHomeSubscribedSeriesProtocol {
-    func presentSerieDetails(serie: SHSerie, colors: UIImageColors)
+    func presentSerieDetails(serie: SHSerie)
 }
 
 class SHHomeHeaderTableViewCell: UITableViewCell {
@@ -32,7 +32,7 @@ class SHHomeHeaderTableViewCell: UITableViewCell {
         layout.minimumLineSpacing = 20
         self.collectionView.collectionViewLayout = layout
         
-        self.collectionView.register(SHHomeCollectionViewCell.cellNib, forCellWithReuseIdentifier: SHHomeCollectionViewCell.id)
+        self.collectionView.register(SHHomeCollectionViewCell.cellNib, forCellWithReuseIdentifier: SHHomeCollectionViewCell.idCell)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -55,7 +55,7 @@ extension SHHomeHeaderTableViewCell: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: SHHomeCollectionViewCell.id, for: indexPath) as! SHHomeCollectionViewCell
+        let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: SHHomeCollectionViewCell.idCell, for: indexPath) as! SHHomeCollectionViewCell
         
         let serie = self.listSubscribedSeries[indexPath.row]
         cell.serieImageView.kf.setImage(with: URL(string: serie.posterImageUrl), placeholder: nil, options: [.transition(.fade(0.5))], progressBlock: nil) { (image, error, cache, url) in
@@ -67,12 +67,9 @@ extension SHHomeHeaderTableViewCell: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let cell = collectionView.cellForItem(at: indexPath) as! SHHomeCollectionViewCell
-        
         let serie = self.listSubscribedSeries[indexPath.row]
         
-        let colors = cell.serieImageView.image?.getColors()
-        self.delegate?.presentSerieDetails(serie: serie, colors: colors!)
+        self.delegate?.presentSerieDetails(serie: serie)
     }
     
     

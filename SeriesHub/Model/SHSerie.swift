@@ -12,13 +12,13 @@ import RealmSwift
 
 class SHSerie: Object {
     
-    dynamic var id: String!
-    dynamic var name: String!
-    dynamic var overview: String!
-    dynamic var firstAirDate: String!
-    dynamic var posterImageUrl: String!
-    dynamic var backgroundImageUrl: String!
-    dynamic var deleted: Bool = false
+    @objc dynamic var id: String!
+    @objc dynamic var name: String!
+    @objc dynamic var overview: String!
+    @objc dynamic var firstAirDate: String!
+    @objc dynamic var posterImageUrl: String!
+    @objc dynamic var backgroundImageUrl: String!
+    @objc dynamic var deleted: Bool = false
     
     static func create(data: Dictionary<AnyHashable,Any>) -> SHSerie {
         

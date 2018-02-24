@@ -8,7 +8,6 @@
 
 import UIKit
 import Kingfisher
-import DynamicColor
 
 class SHSearchTableViewCell: UITableViewCell {
     
@@ -52,7 +51,7 @@ class SHSearchTableViewCell: UITableViewCell {
         
         self.subscribeButton.layer.borderWidth = 0
         self.subscribeButton.backgroundColor = UIColor.lightGray
-        self.subscribeButton.setTitleColor(UIColor(hexString: "#1b1b1b"), for: UIControlState.normal)
+        self.subscribeButton.setTitleColor(UIColor(hex: "#1b1b1b"), for: UIControlState.normal)
         self.subscribeButton.setTitle("SUBSCRIBED", for: .normal)
         
     }

@@ -7,26 +7,28 @@
 //
 
 import UIKit
-import DynamicColor
 
 extension UIButton {
     
+    enum SHButtonState: String {
+        case subscribe = "SUBSCRIBE"
+        case subscribed = "SUBSCRIBED"
+    }
+    
     func setUnselected(color:UIColor) {
-        
         self.clipsToBounds = true
-        self.backgroundColor = color.inverted()
+        self.backgroundColor = UIColor.red
         self.layer.borderWidth = 2
-        self.layer.borderColor = color.cgColor
+        self.layer.borderColor = UIColor.black.cgColor
         self.setTitleColor(color, for: UIControlState.normal)
-        self.setTitle("SUBSCRIBE", for: .normal)
+        self.setTitle(SHButtonState.subscribe.rawValue, for: .normal)
     }
     
     func setSelected(color:UIColor) {
-        
         self.clipsToBounds = true
         self.backgroundColor  = color
-        self.setTitleColor(color.inverted(), for: UIControlState.normal)
-        self.setTitle("SUBSCRIBED", for: .normal)
+        self.setTitleColor(UIColor.blue, for: UIControlState.normal)
+        self.setTitle(SHButtonState.subscribed.rawValue, for: .normal)
     }
     
 }

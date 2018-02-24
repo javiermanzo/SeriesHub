@@ -12,6 +12,8 @@ class SHRequestHelper: NSObject {
     
     static let shared = SHRequestHelper()
     
+    private override init() {}
+    
     func getRecomendedSeries(success:@escaping ( _ response:Any) -> Void, failure:@escaping ( _ error:Error?) -> Void){
         
         let getRecomendedSeriesRequest = SHGetRecomendedSeriesRequest()

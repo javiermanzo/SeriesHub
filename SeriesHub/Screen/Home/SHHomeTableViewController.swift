@@ -27,8 +27,8 @@ class SHHomeTableViewController: UITableViewController, SHHomeSubscribedSeriesPr
         let buttonSearch = UIBarButtonItem(image: imageSearch, style: .plain, target: self, action: #selector(showSearch))
         self.navigationItem.rightBarButtonItem = buttonSearch
         
-        self.tableView.register(SHHomeTableViewCell.cellNib, forCellReuseIdentifier: SHHomeTableViewCell.id)
-        self.tableView.register(SHHomeHeaderTableViewCell.cellNib, forCellReuseIdentifier: SHHomeHeaderTableViewCell.id)
+        self.tableView.register(SHHomeTableViewCell.cellNib, forCellReuseIdentifier: SHHomeTableViewCell.idCell)
+        self.tableView.register(SHHomeHeaderTableViewCell.cellNib, forCellReuseIdentifier: SHHomeHeaderTableViewCell.idCell)
         
         self.tableView.tableFooterView = UIView()
         
@@ -71,7 +71,7 @@ class SHHomeTableViewController: UITableViewController, SHHomeSubscribedSeriesPr
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: SHHomeTableViewCell.id, for: indexPath) as! SHHomeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: SHHomeTableViewCell.idCell, for: indexPath) as! SHHomeTableViewCell
         
         let serie = self.listRecommendedSeries[indexPath.row] as! SHSerie
         
@@ -81,14 +81,9 @@ class SHHomeTableViewController: UITableViewController, SHHomeSubscribedSeriesPr
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let cell = tableView.cellForRow(at: indexPath) as! SHHomeTableViewCell
-        
         let serie = self.listRecommendedSeries[indexPath.row] as! SHSerie
         
-        let colors = cell.serieImageView.image?.getColors()
-        
-        self.presentSerieDetails(serie: serie, colors: colors!)
+        self.presentSerieDetails(serie: serie)
         
     }
     
@@ -104,7 +99,7 @@ class SHHomeTableViewController: UITableViewController, SHHomeSubscribedSeriesPr
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if SHRealmHelper.shared.getSeriesList().count > 0 {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: SHHomeHeaderTableViewCell.id) as! SHHomeHeaderTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: SHHomeHeaderTableViewCell.idCell) as! SHHomeHeaderTableViewCell
             
             cell.delegate = self
             cell.listSubscribedSeries = SHRealmHelper.shared.getSeriesList()
@@ -116,15 +111,14 @@ class SHHomeTableViewController: UITableViewController, SHHomeSubscribedSeriesPr
         
     }
     
-    func showSearch(){
+    @objc func showSearch(){
         let vc = SHSearchTableViewController.instanceWithDefaultNib()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func presentSerieDetails(serie:SHSerie, colors: UIImageColors){
+    func presentSerieDetails(serie:SHSerie){
         let vc = SHDetailsViewController.instanceWithDefaultNib()
         vc.serie = serie
-        vc.colors = colors
         
         vc.modalPresentationStyle = .custom
         vc.transitioningDelegate = self.customTransitioningDelegate

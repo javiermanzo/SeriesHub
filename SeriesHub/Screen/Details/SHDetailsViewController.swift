@@ -14,8 +14,6 @@ class SHDetailsViewController: UIViewController {
     
     var serie: SHSerie!
     
-    var colors: UIImageColors!
-    
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var backgroundAlphaView: UIView!
@@ -60,9 +58,9 @@ class SHDetailsViewController: UIViewController {
         
         self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
         
-        self.collectionView.register(SHDetailsOverviewCollectionViewCell.cellNib, forCellWithReuseIdentifier: SHDetailsOverviewCollectionViewCell.id)
+        self.collectionView.register(SHDetailsOverviewCollectionViewCell.cellNib, forCellWithReuseIdentifier: SHDetailsOverviewCollectionViewCell.idCell)
         
-        self.collectionView.register(self.headerNib, forSupplementaryViewOfKind: IOStickyHeaderParallaxHeader, withReuseIdentifier: IOGrowHeader.id)
+        self.collectionView.register(self.headerNib, forSupplementaryViewOfKind: IOStickyHeaderParallaxHeader, withReuseIdentifier: IOGrowHeader.idCell)
     }
     
     @IBAction func closeAction(_ sender: UIButton) {
@@ -73,14 +71,14 @@ class SHDetailsViewController: UIViewController {
         self.handlePan?(sender)
     }
     
-    func subscribeAction() {
+    @objc func subscribeAction() {
         if SHRealmHelper.shared.isSubscribed(serie: serie) {
             SHRealmHelper.shared.removeSerie(serie: serie)
         } else {
             SHRealmHelper.shared.addSerie(serie: serie)
         }
         
-               self.collectionView.reloadData()
+        self.collectionView.reloadData()
     }
     
 }
@@ -96,15 +94,10 @@ extension SHDetailsViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SHDetailsOverviewCollectionViewCell.id, for: indexPath) as! SHDetailsOverviewCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SHDetailsOverviewCollectionViewCell.idCell, for: indexPath) as! SHDetailsOverviewCollectionViewCell
         
         cell.overviewTextView.text = serie.overview
-        if let colors = self.colors {
-            UIView.animate(withDuration: 0.5, animations: {
-                cell.overviewTextView.textColor = colors.backgroundColor.inverted()
-            })
-            
-        }
+        cell.overviewTextView.textColor = UIColor.red
         
         return cell
     }
@@ -124,15 +117,9 @@ extension SHDetailsViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case IOStickyHeaderParallaxHeader:
-            let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: IOGrowHeader.id, for: indexPath) as! IOGrowHeader
+            let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: IOGrowHeader.idCell, for: indexPath) as! IOGrowHeader
             
-            let color: UIColor!
-            
-            if self.colors != nil {
-                color = self.colors.detailColor
-            } else {
-                color = UIColor.darkGray
-            }
+            let color = UIColor.darkGray
             
             if SHRealmHelper.shared.isSubscribed(serie: serie) {
                 cell.subscribeButton.setSelected(color: color)
@@ -145,16 +132,9 @@ extension SHDetailsViewController: UICollectionViewDataSource, UICollectionViewD
             
             cell.imgPhoto.kf.setImage(with: URL(string: serie.posterImageUrl), placeholder: nil, options: [.transition(.fade(1))], progressBlock: nil) { (image, error, cache, url) in
                 
-
-                    UIView.animate(withDuration: 0.5, animations: {
-                        if self.colors != nil {
-                            cell.setColors(colors: self.colors)
-                            
-                        }
-                        
-                        self.backgroundAlphaView.backgroundColor = self.colors?.backgroundColor
-                        self.backgroundAlphaView.alpha = 0.9
-                    })
+                self.backgroundAlphaView.backgroundColor = UIColor.green
+                self.backgroundAlphaView.alpha = 0.9
+                
             }
             
             cell.setInfo(serie: serie)
@@ -170,7 +150,7 @@ extension SHDetailsViewController: UICollectionViewDataSource, UICollectionViewD
         
         let size = CGSize(width: UIScreen.main.bounds.size.width - 150, height: UIScreen.main.bounds.size.height)
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
-        let attributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 18, weight: UIFontWeightRegular)]
+        let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.regular)]
         
         return NSString(string: text).boundingRect(with: size, options: options, attributes: attributes, context: nil)
     }

@@ -25,8 +25,14 @@ class IOGrowHeader: UICollectionViewCell {
     
     override func awakeFromNib() {
         self.imgPhoto.layer.cornerRadius = 4
-        self.subscribeButton.round()
-        
+        self.subscribeButton.circleView()
+        self.setUpView()
+    }
+    
+    func setUpView() {
+        self.containerView.backgroundColor = UIColor.red
+        self.nameLabel.textColor = UIColor.green
+        self.yearLabel.textColor = UIColor.blue
     }
     
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
@@ -52,13 +58,5 @@ class IOGrowHeader: UICollectionViewCell {
         }
         
     }
-    
-    func setColors(colors: UIImageColors) {
-        self.containerView.backgroundColor = colors.backgroundColor
-        self.nameLabel.textColor = colors.primaryColor
-        self.yearLabel.textColor = colors.secondaryColor
-        
-    }
-    
     
 }
