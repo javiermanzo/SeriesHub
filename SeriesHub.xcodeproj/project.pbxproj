@@ -10,7 +10,7 @@
 		2E60D4301EAD71080066C78E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E60D42F1EAD71080066C78E /* AppDelegate.swift */; };
 		2E60D4451EAD71080066C78E /* SeriesHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E60D4441EAD71080066C78E /* SeriesHubTests.swift */; };
 		2E60D4501EAD71080066C78E /* SeriesHubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E60D44F1EAD71080066C78E /* SeriesHubUITests.swift */; };
-		2E70D0AE1EAD72A500B80184 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E70D0A71EAD72A500B80184 /* Assets.xcassets */; };
+		2E70D0AE1EAD72A500B80184 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E70D0A71EAD72A500B80184 /* Images.xcassets */; };
 		2E70D0AF1EAD72A500B80184 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E70D0A81EAD72A500B80184 /* Info.plist */; };
 		2E70D0B41EAD72D600B80184 /* UICollectionViewCell-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E70D0B21EAD72D600B80184 /* UICollectionViewCell-Extension.swift */; };
 		2E70D0B51EAD72D600B80184 /* UITableViewCell-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E70D0B31EAD72D600B80184 /* UITableViewCell-Extension.swift */; };
@@ -55,6 +55,7 @@
 		8317AD912041121200254763 /* SHSplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8317AD8F2041121200254763 /* SHSplashViewController.swift */; };
 		8317AD922041121200254763 /* SHSplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8317AD902041121200254763 /* SHSplashViewController.xib */; };
 		8317AD942041140700254763 /* SHLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8317AD932041140700254763 /* SHLaunchScreen.storyboard */; };
+		8317AD9820411A7200254763 /* SHColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8317AD9720411A7200254763 /* SHColors.xcassets */; };
 		83AD5BE82041082E006C4B64 /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AD5BE72041082E006C4B64 /* UIColor-Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,7 +85,7 @@
 		2E60D44B1EAD71080066C78E /* SeriesHubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeriesHubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E60D44F1EAD71080066C78E /* SeriesHubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesHubUITests.swift; sourceTree = "<group>"; };
 		2E60D4511EAD71080066C78E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2E70D0A71EAD72A500B80184 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2E70D0A71EAD72A500B80184 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2E70D0A81EAD72A500B80184 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E70D0B21EAD72D600B80184 /* UICollectionViewCell-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell-Extension.swift"; sourceTree = "<group>"; };
 		2E70D0B31EAD72D600B80184 /* UITableViewCell-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell-Extension.swift"; sourceTree = "<group>"; };
@@ -128,6 +129,7 @@
 		8317AD8F2041121200254763 /* SHSplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHSplashViewController.swift; sourceTree = "<group>"; };
 		8317AD902041121200254763 /* SHSplashViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SHSplashViewController.xib; sourceTree = "<group>"; };
 		8317AD932041140700254763 /* SHLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SHLaunchScreen.storyboard; sourceTree = "<group>"; };
+		8317AD9720411A7200254763 /* SHColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SHColors.xcassets; sourceTree = "<group>"; };
 		83AD5BE72041082E006C4B64 /* UIColor-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
 		ACE0ED732848D5F3AB2FA71C /* Pods-SeriesHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeriesHub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SeriesHub/Pods-SeriesHub.debug.xcconfig"; sourceTree = "<group>"; };
 		BADA1C640622782FD9FA47F3 /* Pods_SeriesHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SeriesHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -264,7 +266,8 @@
 			isa = PBXGroup;
 			children = (
 				8317AD932041140700254763 /* SHLaunchScreen.storyboard */,
-				2E70D0A71EAD72A500B80184 /* Assets.xcassets */,
+				2E70D0A71EAD72A500B80184 /* Images.xcassets */,
+				8317AD9720411A7200254763 /* SHColors.xcassets */,
 				2E70D0C51EAD743100B80184 /* SHSettings.plist */,
 				2E70D0A81EAD72A500B80184 /* Info.plist */,
 			);
@@ -530,11 +533,12 @@
 				2E70D0EE1EADA77D00B80184 /* IOGrowHeader.xib in Resources */,
 				2E70D0F41EADA88D00B80184 /* SHDetailsViewController.xib in Resources */,
 				2EDB93261EADEB840021AF0D /* SHSearchTableViewCell.xib in Resources */,
-				2E70D0AE1EAD72A500B80184 /* Assets.xcassets in Resources */,
+				2E70D0AE1EAD72A500B80184 /* Images.xcassets in Resources */,
 				2E70D0C61EAD743100B80184 /* SHSettings.plist in Resources */,
 				2E70D0AF1EAD72A500B80184 /* Info.plist in Resources */,
 				8317AD942041140700254763 /* SHLaunchScreen.storyboard in Resources */,
 				2EDB933F1EAE298F0021AF0D /* SHHomeCollectionViewCell.xib in Resources */,
+				8317AD9820411A7200254763 /* SHColors.xcassets in Resources */,
 				2EDB933B1EAE1F0A0021AF0D /* SHHomeHeaderTableViewCell.xib in Resources */,
 				2EDB93211EADEB630021AF0D /* SHSearchTableViewController.xib in Resources */,
 				8317AD922041121200254763 /* SHSplashViewController.xib in Resources */,
@@ -739,7 +743,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -784,7 +788,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

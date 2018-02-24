@@ -8,13 +8,14 @@
 
 import Foundation
 import RealmSwift
-import SwiftyJSON
 
 class SHRealmHelper {
     
     static let shared = SHRealmHelper()
     
     let realm = try! Realm()
+    
+    private init() {}
     
     func persistSeriesListData(data: NSArray) -> Results<SHSerie>{
         

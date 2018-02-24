@@ -23,21 +23,6 @@ class SHSettingsHelper {
         }
         return nil
     }
-    
-    static func getFirstColor() -> String!{
-        if let firstColor = getValue(withKey: .firstColor) as? String {
-            return firstColor
-        }
-        return nil
-    }
-    
-    static func getSecondColor() -> String!{
-        if let secondColor = getValue(withKey: .secondColor) as? String {
-            return secondColor
-        }
-        return nil
-    }
-    
 }
 
 extension SHSettingsHelper{
@@ -46,8 +31,6 @@ extension SHSettingsHelper{
     fileprivate enum SettingsIdentifier : String {
         case apiKey = "api_key"
         case baseUrl = "base_url"
-        case firstColor = "first_color"
-        case secondColor = "second_color"
     }
     
     fileprivate static func getValue(withKey key: SettingsIdentifier) -> Any!{
