@@ -16,7 +16,7 @@ class SHGetRecomendedSeriesRequest: SHRequestProtocol {
     
     var headers: Dictionary< String, String> = [String: String]()
     
-    func request(success:@escaping (_ response:Any) -> Void, failure:@escaping (_ error:Error) -> Void){
+    func request(success:@escaping (_ response:[SHSerie]) -> Void, failure:@escaping (_ error:Error) -> Void){
         
         self.requestGet(url: self.requestURL, parameters:self.parameters, headers: self.headers, success: { (data) in
             
@@ -27,28 +27,21 @@ class SHGetRecomendedSeriesRequest: SHRequestProtocol {
             
         }) { (error) in
             failure(error)
-            
         }
     }
     
-    
-    func parseRequest(data:Any) -> Any {
-        let listSeries = NSMutableArray()
-        
+    func parseRequest(data:Any) -> [SHSerie] {
+        var listSeries = [SHSerie]()
         let array = data as! NSArray
         
         for seiredData in array {
-            
             if let dic = seiredData as? Dictionary<AnyHashable, Any>  {
                 if let overview = dic["poster_path"] as? String, overview != "" {
                     let serie = SHSerie.create(data: (seiredData as? Dictionary)!)
-                    listSeries.add(serie)
+                    listSeries.append(serie)
                 }
             }
-            
-            
         }
-        
         return listSeries
     }
     

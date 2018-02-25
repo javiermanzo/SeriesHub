@@ -10,12 +10,14 @@ import UIKit
 
 class SHHomeCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var serieImageView: UIImageView!
+    @IBOutlet private var serieImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        self.serieImageView.layer.cornerRadius = 4
-        self.serieImageView.clipsToBounds = true
+        self.serieImageView.roundCorners()
     }
 
+    func setInfo(serie:SHSerie) {
+        self.serieImageView.kf.setImage(with: URL(string: serie.posterImageUrl), placeholder: nil, options: [.transition(.fade(0.5))], progressBlock: nil, completionHandler: nil)
+    }
 }

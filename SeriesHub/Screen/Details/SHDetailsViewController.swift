@@ -14,10 +14,10 @@ class SHDetailsViewController: UIViewController {
     
     var serie: SHSerie!
     
-    @IBOutlet weak var topView: UIView!
-    @IBOutlet weak var backgroundImageView: UIImageView!
-    @IBOutlet weak var backgroundAlphaView: UIView!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private var topView: UIView!
+    @IBOutlet private var backgroundImageView: UIImageView!
+    @IBOutlet private var backgroundAlphaView: UIView!
+    @IBOutlet private var collectionView: UICollectionView!
     let headerNib = UINib(nibName: "IOGrowHeader", bundle: Bundle.main)
     
     var handlePan: ((_ panGestureRecognizer: UIPanGestureRecognizer) -> Void)?
@@ -94,12 +94,12 @@ extension SHDetailsViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SHDetailsOverviewCollectionViewCell.idCell, for: indexPath) as! SHDetailsOverviewCollectionViewCell
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SHDetailsOverviewCollectionViewCell.idCell, for: indexPath) as? SHDetailsOverviewCollectionViewCell {
+            cell.setInfo(serie: serie)
+            return cell
+        }
         
-        cell.overviewTextView.text = serie.overview
-        cell.overviewTextView.textColor = UIColor.red
-        
-        return cell
+        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -117,29 +117,16 @@ extension SHDetailsViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case IOStickyHeaderParallaxHeader:
-            let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: IOGrowHeader.idCell, for: indexPath) as! IOGrowHeader
-            
-            let color = UIColor.darkGray
-            
-            if SHRealmHelper.shared.isSubscribed(serie: serie) {
-                cell.subscribeButton.setSelected(color: color)
-            } else {
-                cell.subscribeButton.setUnselected(color: color)
+            if let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: IOGrowHeader.idCell, for: indexPath) as? IOGrowHeader {
                 
+                cell.subscribeButton.addTarget(self, action: #selector(subscribeAction), for: .touchUpInside)
+                
+                cell.setInfo(serie: serie)
+                
+                return cell
             }
-            cell.subscribeButton.addTarget(self, action: #selector(subscribeAction), for: .touchUpInside)
+            return UICollectionReusableView()
             
-            
-            cell.imgPhoto.kf.setImage(with: URL(string: serie.posterImageUrl), placeholder: nil, options: [.transition(.fade(1))], progressBlock: nil) { (image, error, cache, url) in
-                
-                self.backgroundAlphaView.backgroundColor = UIColor.green
-                self.backgroundAlphaView.alpha = 0.9
-                
-            }
-            
-            cell.setInfo(serie: serie)
-            
-            return cell
         default:
             assert(false, "Unexpected element kind")
         }

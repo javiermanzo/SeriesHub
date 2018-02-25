@@ -9,7 +9,7 @@
 import Foundation
 
 protocol SHSearchTableViewModelDelegate: class {
-    func showResults(listSeries: [SHSerie])
+    func showResults(series: [SHSerie])
 }
 
 class SHSearchTableViewModel {
@@ -22,7 +22,7 @@ class SHSearchTableViewModel {
     
     func filterContentForSearchText(_ searchText: String) {
         SHRequestHelper.shared.getSerieWithTitle(title: searchText, success: { (data) in
-            self.delegate?.showResults(listSeries: data)
+            self.delegate?.showResults(series: data)
         }) { (error) in
             print(error)
         }

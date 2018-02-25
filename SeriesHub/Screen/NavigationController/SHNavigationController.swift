@@ -21,15 +21,9 @@ class SHNavigationController: UINavigationController {
         self.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationBar.shadowImage = UIImage()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-
 
 }

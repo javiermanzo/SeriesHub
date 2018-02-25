@@ -14,7 +14,7 @@ class SHRequestHelper: NSObject {
     
     private override init() {}
     
-    func getRecomendedSeries(success:@escaping ( _ response:Any) -> Void, failure:@escaping ( _ error:Error?) -> Void){
+    func getRecomendedSeries(success:@escaping ( _ response:[SHSerie]) -> Void, failure:@escaping ( _ error:Error) -> Void){
         
         let getRecomendedSeriesRequest = SHGetRecomendedSeriesRequest()
         

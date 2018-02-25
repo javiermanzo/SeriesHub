@@ -18,13 +18,16 @@ class SHHomeHeaderTableViewCell: UITableViewCell {
     
     var delegate:SHHomeSubscribedSeriesProtocol?
     lazy var listSubscribedSeries: Results<SHSerie> = { SHRealmHelper.shared.realm.objects(SHSerie.self) }()
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet private var collectionView: UICollectionView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        self.setUpView()
+    }
+    
+    func setUpView() {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-        
         
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 100, height: 150)
@@ -35,14 +38,10 @@ class SHHomeHeaderTableViewCell: UITableViewCell {
         self.collectionView.register(SHHomeCollectionViewCell.cellNib, forCellWithReuseIdentifier: SHHomeCollectionViewCell.idCell)
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
+    func reload() {
+        self.collectionView.reloadData()
     }
-    
 }
-
 
 extension SHHomeHeaderTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -55,23 +54,17 @@ extension SHHomeHeaderTableViewCell: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: SHHomeCollectionViewCell.idCell, for: indexPath) as! SHHomeCollectionViewCell
-        
-        let serie = self.listSubscribedSeries[indexPath.row]
-        cell.serieImageView.kf.setImage(with: URL(string: serie.posterImageUrl), placeholder: nil, options: [.transition(.fade(0.5))], progressBlock: nil) { (image, error, cache, url) in
-            
-            
+        if let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: SHHomeCollectionViewCell.idCell, for: indexPath) as? SHHomeCollectionViewCell {
+            let serie = self.listSubscribedSeries[indexPath.row]
+            cell.setInfo(serie: serie)
+            return cell
         }
-        return cell
+        
+        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         let serie = self.listSubscribedSeries[indexPath.row]
-        
         self.delegate?.presentSerieDetails(serie: serie)
     }
-    
-    
-    
 }

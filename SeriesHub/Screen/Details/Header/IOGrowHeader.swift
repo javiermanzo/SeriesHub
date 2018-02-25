@@ -14,12 +14,12 @@ import Kingfisher
 
 class IOGrowHeader: UICollectionViewCell {
     
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var yearLabel: UILabel!
-    @IBOutlet weak var imgPhoto: UIImageView!
+    @IBOutlet private var containerView: UIView!
+    @IBOutlet private var nameLabel: UILabel!
+    @IBOutlet private var yearLabel: UILabel!
+    @IBOutlet private var imgPhoto: UIImageView!
     @IBOutlet weak var subscribeButton: UIButton!
-    @IBOutlet weak var constraintImgSize: NSLayoutConstraint!
+    @IBOutlet private var constraintImgSize: NSLayoutConstraint!
     
     let imageHeaderWidth:CGFloat = 140
     
@@ -56,7 +56,12 @@ class IOGrowHeader: UICollectionViewCell {
         } else {
             self.yearLabel.text = ""
         }
-        
+        if SHRealmHelper.shared.isSubscribed(serie: serie) {
+            self.subscribeButton.setSelected(color: UIColor.darkGray)
+        } else {
+            self.subscribeButton.setUnselected(color: UIColor.darkGray)
+        }
+        self.imgPhoto.kf.setImage(with: URL(string: serie.posterImageUrl), placeholder: nil, options: [.transition(.fade(1))], progressBlock: nil, completionHandler: nil)
     }
     
 }

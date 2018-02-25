@@ -21,7 +21,7 @@ class SHSearchTableViewCell: UITableViewCell {
     }
     
     func setUpSubscribeButton() {
-        self.subscribeButton.roundCorners(cornerRadius: 4, clipsToBounds: true)
+        self.subscribeButton.roundCorners()
     }
     
     func setInfo(serie:SHSerie) {

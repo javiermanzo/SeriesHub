@@ -108,12 +108,11 @@ extension SHSearchTableViewController: UISearchControllerDelegate, UISearchBarDe
             self.viewModel.filterContentForSearchText(searchText)
         }
     }
-    
 }
 
 extension SHSearchTableViewController: SHSearchTableViewModelDelegate {
-    func showResults(listSeries: [SHSerie]) {
-        self.listSeries = listSeries
+    func showResults(series: [SHSerie]) {
+        self.listSeries = series
         self.tableView.reloadData()
     }
 }

@@ -9,18 +9,31 @@
 import UIKit
 import AICustomViewControllerTransition
 
-class SHHomeTableViewController: UITableViewController, SHHomeSubscribedSeriesProtocol {
+class SHHomeTableViewController: UITableViewController {
     
-    
+    lazy var viewModel = SHHomeTableViewModel(delegate: self)
     var customTransitioningDelegate: InteractiveTransitioningDelegate = InteractiveTransitioningDelegate()
     var lastPanRatio: CGFloat = 0.0
     let panRatioThreshold: CGFloat = 0.3
     var lastDetailViewOriginY: CGFloat = 0.0
     
-    var listRecommendedSeries = NSMutableArray()
+    var listRecommendedSeries = [SHSerie]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setUpView()
+        self.configutreTransition()
+        
+        self.viewModel.getRecomendedSeries()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
+    
+    func setUpView() {
         self.title = "TV Show Reminder"
         
         let imageSearch = UIImage(named: "search")?.withRenderingMode(.alwaysOriginal)
@@ -31,65 +44,39 @@ class SHHomeTableViewController: UITableViewController, SHHomeSubscribedSeriesPr
         self.tableView.register(SHHomeHeaderTableViewCell.cellNib, forCellReuseIdentifier: SHHomeHeaderTableViewCell.idCell)
         
         self.tableView.tableFooterView = UIView()
-        
-        self.configutreTransition()
-        
-        SHRequestHelper.shared.getRecomendedSeries(success: { (series) in
-            self.listRecommendedSeries = series as! NSMutableArray
-            self.tableView.reloadData()
-        }) { (error) in
-            
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tableView.reloadData()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Table view data source
-    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 160
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return self.listRecommendedSeries.count
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: SHHomeTableViewCell.idCell, for: indexPath) as? SHHomeTableViewCell {
+            let serie = self.listRecommendedSeries[indexPath.row]
+            cell.setInfo(serie: serie)
+            
+            return cell
+        }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: SHHomeTableViewCell.idCell, for: indexPath) as! SHHomeTableViewCell
-        
-        let serie = self.listRecommendedSeries[indexPath.row] as! SHSerie
-        
-        cell.setInfo(serie: serie)
-        
-        return cell
+        return UITableViewCell()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let serie = self.listRecommendedSeries[indexPath.row] as! SHSerie
-        
+        let serie = self.listRecommendedSeries[indexPath.row]
         self.presentSerieDetails(serie: serie)
-        
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if SHRealmHelper.shared.getSeriesList().count > 0 {
-            
             return 206
         } else {
             return 0
@@ -97,18 +84,14 @@ class SHHomeTableViewController: UITableViewController, SHHomeSubscribedSeriesPr
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if SHRealmHelper.shared.getSeriesList().count > 0 {
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: SHHomeHeaderTableViewCell.idCell) as! SHHomeHeaderTableViewCell
-            
+        if let cell = tableView.dequeueReusableCell(withIdentifier: SHHomeHeaderTableViewCell.idCell) as? SHHomeHeaderTableViewCell, SHRealmHelper.shared.getSeriesList().count > 0 {
             cell.delegate = self
             cell.listSubscribedSeries = SHRealmHelper.shared.getSeriesList()
-            cell.collectionView?.reloadData()
+            cell.reload()
             return cell
-        } else {
+        }  else {
             return nil
         }
-        
     }
     
     @objc func showSearch(){
@@ -116,24 +99,11 @@ class SHHomeTableViewController: UITableViewController, SHHomeSubscribedSeriesPr
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func presentSerieDetails(serie:SHSerie){
-        let vc = SHDetailsViewController.instanceWithDefaultNib()
-        vc.serie = serie
-        
-        vc.modalPresentationStyle = .custom
-        vc.transitioningDelegate = self.customTransitioningDelegate
-        
-        vc.handlePan = self.getPanGestureRecognizer(originView: self.view, destinationVC: vc)
-        self.present(vc, animated: true, completion: nil)
-    }
-    
     func configutreTransition() {
         self.customTransitioningDelegate.transitionDismiss = { (fromViewController: UIViewController, toViewController: UIViewController, containerView: UIView, transitionType: TransitionType, completion: @escaping () -> Void) in
             
             UIView.animate(withDuration: defaultTransitionAnimationDuration, animations: {
-                
                 fromViewController.view.alpha = 0.0
-                
             }, completion: { (finished) in
                 completion()
                 // Reset value, since we are using a lazy var for viewController
@@ -143,7 +113,6 @@ class SHHomeTableViewController: UITableViewController, SHHomeSubscribedSeriesPr
     }
     
     func getPanGestureRecognizer(originView: UIView, destinationVC: UIViewController) -> ((_ panGestureRecognizer: UIPanGestureRecognizer) -> Void) {
-        
         var handlePan: ((_ panGestureRecognizer: UIPanGestureRecognizer) -> Void)
         
         handlePan = {(panGestureRecozgnizer) in
@@ -180,5 +149,25 @@ class SHHomeTableViewController: UITableViewController, SHHomeSubscribedSeriesPr
         return handlePan
     }
     
-    
 }
+
+extension SHHomeTableViewController: SHHomeTableViewModelDelegate {
+    func showResults(series: [SHSerie]) {
+        self.listRecommendedSeries = series
+        self.tableView.reloadData()
+    }
+}
+
+extension SHHomeTableViewController: SHHomeSubscribedSeriesProtocol {
+    func presentSerieDetails(serie:SHSerie){
+        let vc = SHDetailsViewController.instanceWithDefaultNib()
+        vc.serie = serie
+        
+        vc.modalPresentationStyle = .custom
+        vc.transitioningDelegate = self.customTransitioningDelegate
+        
+        vc.handlePan = self.getPanGestureRecognizer(originView: self.view, destinationVC: vc)
+        self.present(vc, animated: true, completion: nil)
+    }
+}
+
