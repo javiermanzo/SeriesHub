@@ -16,7 +16,7 @@ class SHGetSerieWithTitleRequest: SHRequestProtocol {
     
     var headers: Dictionary< String, String> = [String: String]()
     
-    func request(title: String, success:@escaping (_ response:Any) -> Void, failure:@escaping (_ error:Error) -> Void){
+    func request(title: String, success:@escaping (_ response:[SHSerie]) -> Void, failure:@escaping (_ error:Error) -> Void){
         
         self.parameters = ["query" : title]
         
@@ -34,8 +34,8 @@ class SHGetSerieWithTitleRequest: SHRequestProtocol {
     }
     
     
-    func parseRequest(data:Any) -> Any {
-        let listSeries = NSMutableArray()
+    func parseRequest(data:Any) -> [SHSerie] {
+        var listSeries = [SHSerie]()
         
         let array = data as! NSArray
         
@@ -43,7 +43,7 @@ class SHGetSerieWithTitleRequest: SHRequestProtocol {
             if let dic = seiredData as? Dictionary<AnyHashable, Any>  {
                 if let overview = dic["poster_path"] as? String, overview != "" {
                     let serie = SHSerie.create(data: (seiredData as? Dictionary)!)
-                    listSeries.add(serie)
+                    listSeries.append(serie)
                 }
             }
         }

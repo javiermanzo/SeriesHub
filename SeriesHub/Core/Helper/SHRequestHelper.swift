@@ -39,7 +39,7 @@ class SHRequestHelper: NSObject {
         }
     }
     
-    func getSerieWithTitle(title:String, success:@escaping (_ response:Any) -> Void, failure:@escaping (_ error:Error) -> Void){
+    func getSerieWithTitle(title:String, success:@escaping (_ response:[SHSerie]) -> Void, failure:@escaping (_ error:Error) -> Void){
         
         let serieWithTitleRequest = SHGetSerieWithTitleRequest()
         

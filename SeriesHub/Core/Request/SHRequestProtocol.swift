@@ -14,8 +14,6 @@ protocol SHRequestProtocol {
     var requestURL: String { get }
     var parameters: Dictionary< String, String> { get set }
     var headers: Dictionary< String, String> { get set }
-    //  func request(success:@escaping (_ response:Any) -> Void, failure:@escaping (_ error:Error) -> Void)
-    func parseRequest(data:Any) -> Any
 }
 
 extension SHRequestProtocol {
