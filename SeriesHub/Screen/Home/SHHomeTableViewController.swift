@@ -31,6 +31,7 @@ class SHHomeTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
+        self.setUpHeader()
     }
     
     func setUpView() {
@@ -44,6 +45,16 @@ class SHHomeTableViewController: UITableViewController {
         self.tableView.register(SHHomeHeaderTableViewCell.cellNib, forCellReuseIdentifier: SHHomeHeaderTableViewCell.idCell)
         
         self.tableView.tableFooterView = UIView()
+    }
+    
+    func setUpHeader() {
+        if let header = SHHomeHeaderTableViewCell.instanceWithDefaultNib() as? SHHomeHeaderTableViewCell, SHRealmHelper.shared.getSeriesList().count > 0 {
+            self.tableView.tableHeaderView = header
+            header.delegate = self
+            header.reload()
+        } else {
+            self.tableView.tableHeaderView = nil
+        }
     }
     
     // MARK: - Table view data source
@@ -73,25 +84,6 @@ class SHHomeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let serie = self.listRecommendedSeries[indexPath.row]
         self.presentSerieDetails(serie: serie)
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if SHRealmHelper.shared.getSeriesList().count > 0 {
-            return 206
-        } else {
-            return 0
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: SHHomeHeaderTableViewCell.idCell) as? SHHomeHeaderTableViewCell, SHRealmHelper.shared.getSeriesList().count > 0 {
-            cell.delegate = self
-            cell.listSubscribedSeries = SHRealmHelper.shared.getSeriesList()
-            cell.reload()
-            return cell
-        }  else {
-            return nil
-        }
     }
     
     @objc func showSearch(){

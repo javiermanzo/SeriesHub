@@ -38,14 +38,12 @@ class SHRealmHelper {
     
     func addSerie(serie: SHSerie) {
         try! realm.write {
-            
             if realm.objects(SHSerie.self).filter("id == '" + serie.id + "'").first != nil{
                 serie.deleted = false
                 realm.add(serie, update: true)
             } else {
                 realm.add(serie)
             }
-        
         }
     }
     

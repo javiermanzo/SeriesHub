@@ -110,8 +110,6 @@ extension SHDetailsViewController: UICollectionViewDataSource, UICollectionViewD
         
         height = estimateFrameForText(text: serie.overview).height + padding
         return CGSize(width: UIScreen.main.bounds.size.width, height: height)
-        
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -132,13 +130,10 @@ extension SHDetailsViewController: UICollectionViewDataSource, UICollectionViewD
         }
     }
     
-    
     private func estimateFrameForText(text: String) -> CGRect {
-        
         let size = CGSize(width: UIScreen.main.bounds.size.width - 150, height: UIScreen.main.bounds.size.height)
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
         let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.regular)]
-        
         return NSString(string: text).boundingRect(with: size, options: options, attributes: attributes, context: nil)
     }
     

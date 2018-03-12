@@ -17,7 +17,7 @@ protocol SHHomeSubscribedSeriesProtocol {
 class SHHomeHeaderTableViewCell: UITableViewCell {
     
     var delegate:SHHomeSubscribedSeriesProtocol?
-    lazy var listSubscribedSeries: Results<SHSerie> = { SHRealmHelper.shared.realm.objects(SHSerie.self) }()
+    lazy var listSubscribedSeries = SHRealmHelper.shared.getSeriesList()
     @IBOutlet private var collectionView: UICollectionView!
     
     override func awakeFromNib() {
