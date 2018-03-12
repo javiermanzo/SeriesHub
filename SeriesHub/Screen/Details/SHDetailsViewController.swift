@@ -12,7 +12,7 @@ import Kingfisher
 
 class SHDetailsViewController: UIViewController {
     
-    var serie: SHSerie!
+    var serie: SHSerie
     
     @IBOutlet private var topView: UIView!
     @IBOutlet private var backgroundImageView: UIImageView!
@@ -21,6 +21,16 @@ class SHDetailsViewController: UIViewController {
     let headerNib = UINib(nibName: "IOGrowHeader", bundle: Bundle.main)
     
     var handlePan: ((_ panGestureRecognizer: UIPanGestureRecognizer) -> Void)?
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    init(serie: SHSerie) {
+        self.serie = serie
+        let className = String(describing: type(of: self))
+        super.init(nibName: className, bundle: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

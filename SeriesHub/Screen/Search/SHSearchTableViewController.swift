@@ -72,9 +72,8 @@ class SHSearchTableViewController: UITableViewController  {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = SHDetailsViewController.instanceWithDefaultNib()
         let serie = self.listSeries[indexPath.row]
-        vc.serie = serie
+        let vc = SHDetailsViewController(serie: serie)
         self.present(vc, animated: true, completion: nil)
     }
     

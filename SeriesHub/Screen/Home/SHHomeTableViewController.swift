@@ -152,8 +152,7 @@ extension SHHomeTableViewController: SHHomeTableViewModelDelegate {
 
 extension SHHomeTableViewController: SHHomeSubscribedSeriesProtocol {
     func presentSerieDetails(serie:SHSerie){
-        let vc = SHDetailsViewController.instanceWithDefaultNib()
-        vc.serie = serie
+        let vc = SHDetailsViewController(serie: serie)
         
         vc.modalPresentationStyle = .custom
         vc.transitioningDelegate = self.customTransitioningDelegate
