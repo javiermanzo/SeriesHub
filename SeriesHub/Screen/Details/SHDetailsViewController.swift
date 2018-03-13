@@ -35,11 +35,7 @@ class SHDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.backgroundImageView.kf.setImage(with: URL(string: serie.backgroundImageUrl), placeholder: nil, options: [.transition(.fade(1))], progressBlock: nil) { (image, error, cache, url) in
-            
-            self.backgroundImageView.image = image
-            
-        }
+        self.backgroundImageView.kf.setImage(with: URL(string: serie.backgroundImageUrl), placeholder: nil, options: [.transition(.fade(1))], progressBlock: nil, completionHandler: nil)
         
         self.setupCollectionView()
     }
@@ -64,8 +60,6 @@ class SHDetailsViewController: UIViewController {
             self.collectionView.collectionViewLayout = layout
         }
         
-        
-        
         self.collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
         
         self.collectionView.register(SHDetailsOverviewCollectionViewCell.cellNib, forCellWithReuseIdentifier: SHDetailsOverviewCollectionViewCell.idCell)
@@ -82,10 +76,10 @@ class SHDetailsViewController: UIViewController {
     }
     
     @objc func subscribeAction() {
-        if SHRealmHelper.shared.isSubscribed(serie: serie) {
-            SHRealmHelper.shared.removeSerie(serie: serie)
+        if SHRealm.shared.isSubscribed(serie: serie) {
+            SHRealm.shared.removeSerie(serie: serie)
         } else {
-            SHRealmHelper.shared.addSerie(serie: serie)
+            SHRealm.shared.addSerie(serie: serie)
         }
         
         self.collectionView.reloadData()

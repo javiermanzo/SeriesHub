@@ -1,5 +1,5 @@
 //
-//  SHRealmHelper.swift
+//  SHRealm.swift
 //  SeriesHub
 //
 //  Created by Javier Manzo on 4/24/17.
@@ -9,13 +9,13 @@
 import Foundation
 import RealmSwift
 
-class SHRealmHelper {
-    
-    static let shared = SHRealmHelper()
-    
-    let realm = try! Realm()
+class SHRealm {
     
     private init() {}
+    
+    static let shared = SHRealm()
+    
+    let realm = try! Realm()
     
     func persistSeriesListData(data: NSArray) -> Results<SHSerie>{
         

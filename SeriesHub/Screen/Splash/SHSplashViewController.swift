@@ -17,11 +17,11 @@ class SHSplashViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if (SHUserDefaultsHelper.getImageBaseUrl()) != nil {
+        if SHUserDefaults.imageBaseURL.get() != nil {
             self.showHomeController()
         } else {
             SHRequestHelper.shared.getConfiguration(success: { (imageBaseUrl) in
-                SHUserDefaultsHelper.setImageBaseUrl(imageBaseURL: imageBaseUrl + "w500/")
+                SHUserDefaults.imageBaseURL.set(value: imageBaseUrl + "w500/")
                 self.showHomeController()
             }) { (error) in
                 print(error)
@@ -35,7 +35,7 @@ class SHSplashViewController: UIViewController {
         
         let when = DispatchTime.now() + 4
         DispatchQueue.main.asyncAfter(deadline: when) {
-            SHScreenFlowHelper.shared.changeRootViewController(viewController: navigationController)
+            SHScreenFlow.shared.changeRootViewController(viewController: navigationController)
         }
     }
     

@@ -1,6 +1,6 @@
 
 //
-//  SHScreenFlowHelper.swift
+//  SHScreenFlow.swift
 //  SeriesHub
 //
 //  Created by Javier Manzo on 4/23/17.
@@ -9,13 +9,13 @@
 
 import UIKit
 
-class SHScreenFlowHelper {
-    
-    static let shared = SHScreenFlowHelper()
-    
-    let appDelegate = UIApplication.shared.delegate
+class SHScreenFlow {
     
     private init() {}
+    
+    static let shared = SHScreenFlow()
+    
+    let appDelegate = UIApplication.shared.delegate
     
     func changeRootViewController(viewController: UIViewController!) {
         if let appDelegate = self.appDelegate as? AppDelegate,

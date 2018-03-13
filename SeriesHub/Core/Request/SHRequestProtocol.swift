@@ -21,7 +21,7 @@ extension SHRequestProtocol {
     func requestGet(url:String, parameters:[String: String], headers:[String: String], success:@escaping (_ data:Dictionary<AnyHashable,Any>) -> Void, failure:@escaping (_ error:Error) -> Void){
         
         var param = parameters
-        param["api_key"] = SHSettingsHelper.getApiKey()
+        param["api_key"] = SHSettings.apiKey.value()
         
         Alamofire.request(url, method: .get, parameters: param, encoding: URLEncoding.default, headers: nil).responseJSON { response in
             switch response.result {

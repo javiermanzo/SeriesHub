@@ -29,9 +29,10 @@ class SHSerie: Object {
         serie.name = json["name"].stringValue
         serie.overview = json["overview"].stringValue
         serie.firstAirDate = json["first_air_date"].stringValue
-        serie.posterImageUrl =  SHUserDefaultsHelper.getImageBaseUrl() + json["poster_path"].stringValue
-        serie.backgroundImageUrl = SHUserDefaultsHelper.getImageBaseUrl() + json["backdrop_path"].stringValue
-        
+        if let imageBaseUrl = SHUserDefaults.imageBaseURL.get() {
+            serie.posterImageUrl =  imageBaseUrl + json["poster_path"].stringValue
+            serie.backgroundImageUrl = imageBaseUrl + json["backdrop_path"].stringValue
+        }
         return serie
     }
     

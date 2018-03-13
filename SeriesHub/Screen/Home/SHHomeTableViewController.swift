@@ -42,13 +42,12 @@ class SHHomeTableViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = buttonSearch
         
         self.tableView.register(SHHomeTableViewCell.cellNib, forCellReuseIdentifier: SHHomeTableViewCell.idCell)
-        self.tableView.register(SHHomeHeaderTableViewCell.cellNib, forCellReuseIdentifier: SHHomeHeaderTableViewCell.idCell)
         
         self.tableView.tableFooterView = UIView()
     }
     
     func setUpHeader() {
-        if let header = SHHomeHeaderTableViewCell.instanceWithDefaultNib() as? SHHomeHeaderTableViewCell, SHRealmHelper.shared.getSeriesList().count > 0 {
+        if let header = SHHomeHeaderTableViewCell.instanceWithDefaultNib() as? SHHomeHeaderTableViewCell, SHRealm.shared.getSeriesList().count > 0 {
             self.tableView.tableHeaderView = header
             header.delegate = self
             header.reload()

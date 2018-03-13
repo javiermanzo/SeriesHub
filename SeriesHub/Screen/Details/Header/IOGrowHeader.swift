@@ -56,7 +56,7 @@ class IOGrowHeader: UICollectionViewCell {
         } else {
             self.yearLabel.text = ""
         }
-        if SHRealmHelper.shared.isSubscribed(serie: serie) {
+        if SHRealm.shared.isSubscribed(serie: serie) {
             self.subscribeButton.setSelected(color: UIColor.darkGray)
         } else {
             self.subscribeButton.setUnselected(color: UIColor.darkGray)

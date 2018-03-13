@@ -59,7 +59,7 @@ class SHSearchTableViewController: UITableViewController  {
             cell.subscribeButton.tag = indexPath.row
             cell.subscribeButton.addTarget(self, action: #selector(subscribeAction), for: .touchUpInside)
             
-            if SHRealmHelper.shared.isSubscribed(serie: serie) {
+            if SHRealm.shared.isSubscribed(serie: serie) {
                 cell.setSelectedButton()
             } else {
                 cell.setUnselectedButton()
@@ -89,10 +89,10 @@ class SHSearchTableViewController: UITableViewController  {
         
         let serie = self.listSeries[sender.tag]
         
-        if SHRealmHelper.shared.isSubscribed(serie: serie) {
-            SHRealmHelper.shared.removeSerie(serie: serie)
+        if SHRealm.shared.isSubscribed(serie: serie) {
+            SHRealm.shared.removeSerie(serie: serie)
         } else {
-            SHRealmHelper.shared.addSerie(serie: serie)
+            SHRealm.shared.addSerie(serie: serie)
         }
         
         let indexPath = IndexPath(item: sender.tag, section: 0)

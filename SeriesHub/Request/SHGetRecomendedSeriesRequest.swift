@@ -10,7 +10,7 @@ import Foundation
 
 class SHGetRecomendedSeriesRequest: SHRequestProtocol {
     
-    let requestURL: String = (SHSettingsHelper.getBaseUrl() + "/3/discover/tv")
+    let requestURL: String = (SHSettings.baseUrl.value() + "/3/discover/tv")
     
     var parameters: Dictionary< String, String> = [String: String]()
     

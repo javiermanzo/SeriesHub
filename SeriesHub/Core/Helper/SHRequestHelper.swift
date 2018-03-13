@@ -8,11 +8,11 @@
 
 import Foundation
 
-class SHRequestHelper: NSObject {
+class SHRequestHelper {
+    
+    private init() {}
     
     static let shared = SHRequestHelper()
-    
-    private override init() {}
     
     func getRecomendedSeries(success:@escaping ( _ response:[SHSerie]) -> Void, failure:@escaping ( _ error:Error) -> Void){
         

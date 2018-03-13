@@ -10,7 +10,7 @@ import UIKit
 
 class SHGetConfigurationRequest: SHRequestProtocol {
     
-    let requestURL: String = (SHSettingsHelper.getBaseUrl() + "/3/configuration")
+    let requestURL: String = (SHSettings.baseUrl.value() + "/3/configuration")
     
     var parameters = [String: String]()
     

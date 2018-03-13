@@ -10,7 +10,7 @@ import Foundation
 
 class SHGetSerieWithTitleRequest: SHRequestProtocol {
 
-    let requestURL: String = (SHSettingsHelper.getBaseUrl() + "/3/search/tv")
+    let requestURL: String = (SHSettings.baseUrl.value() + "/3/search/tv")
     
     var parameters: Dictionary< String, String> = [String: String]()
     

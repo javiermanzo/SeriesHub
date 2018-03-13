@@ -21,11 +21,11 @@
 		2E70D0C21EAD738600B80184 /* SHGetRecomendedSeriesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E70D0C01EAD738600B80184 /* SHGetRecomendedSeriesRequest.swift */; };
 		2E70D0C41EAD740D00B80184 /* SHSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E70D0C31EAD740D00B80184 /* SHSerie.swift */; };
 		2E70D0C61EAD743100B80184 /* SHSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2E70D0C51EAD743100B80184 /* SHSettings.plist */; };
-		2E70D0C81EAD77C600B80184 /* SHSettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E70D0C71EAD77C600B80184 /* SHSettingsHelper.swift */; };
+		2E70D0C81EAD77C600B80184 /* SHSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E70D0C71EAD77C600B80184 /* SHSettings.swift */; };
 		2E70D0CA1EAD935800B80184 /* SHRequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E70D0C91EAD935800B80184 /* SHRequestHelper.swift */; };
-		2E70D0CC1EAD948000B80184 /* SHUserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E70D0CB1EAD948000B80184 /* SHUserDefaultsHelper.swift */; };
+		2E70D0CC1EAD948000B80184 /* SHUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E70D0CB1EAD948000B80184 /* SHUserDefaults.swift */; };
 		2E70D0D71EAD96FE00B80184 /* SHGetConfigurationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E70D0D61EAD96FE00B80184 /* SHGetConfigurationRequest.swift */; };
-		2E70D0D91EAD99EB00B80184 /* SHScreenFlowHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E70D0D81EAD99EB00B80184 /* SHScreenFlowHelper.swift */; };
+		2E70D0D91EAD99EB00B80184 /* SHScreenFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E70D0D81EAD99EB00B80184 /* SHScreenFlow.swift */; };
 		2E70D0DD1EAD9A3A00B80184 /* SHNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E70D0DC1EAD9A3A00B80184 /* SHNavigationController.swift */; };
 		2E70D0E01EAD9B0500B80184 /* SHHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E70D0DE1EAD9B0500B80184 /* SHHomeTableViewController.swift */; };
 		2E70D0E11EAD9B0500B80184 /* SHHomeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E70D0DF1EAD9B0500B80184 /* SHHomeTableViewController.xib */; };
@@ -46,7 +46,7 @@
 		2EDB93251EADEB840021AF0D /* SHSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB93231EADEB840021AF0D /* SHSearchTableViewCell.swift */; };
 		2EDB93261EADEB840021AF0D /* SHSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EDB93241EADEB840021AF0D /* SHSearchTableViewCell.xib */; };
 		2EDB93281EADF0570021AF0D /* SHGetSearchSerieRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB93271EADF0570021AF0D /* SHGetSearchSerieRequest.swift */; };
-		2EDB932A1EAE09780021AF0D /* SHRealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB93291EAE09780021AF0D /* SHRealmHelper.swift */; };
+		2EDB932A1EAE09780021AF0D /* SHRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB93291EAE09780021AF0D /* SHRealm.swift */; };
 		2EDB933A1EAE1F0A0021AF0D /* SHHomeHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB93381EAE1F0A0021AF0D /* SHHomeHeaderTableViewCell.swift */; };
 		2EDB933B1EAE1F0A0021AF0D /* SHHomeHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EDB93391EAE1F0A0021AF0D /* SHHomeHeaderTableViewCell.xib */; };
 		2EDB933E1EAE298F0021AF0D /* SHHomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EDB933C1EAE298F0021AF0D /* SHHomeCollectionViewCell.swift */; };
@@ -98,11 +98,11 @@
 		2E70D0C01EAD738600B80184 /* SHGetRecomendedSeriesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHGetRecomendedSeriesRequest.swift; sourceTree = "<group>"; };
 		2E70D0C31EAD740D00B80184 /* SHSerie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHSerie.swift; sourceTree = "<group>"; };
 		2E70D0C51EAD743100B80184 /* SHSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SHSettings.plist; sourceTree = "<group>"; };
-		2E70D0C71EAD77C600B80184 /* SHSettingsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHSettingsHelper.swift; sourceTree = "<group>"; };
+		2E70D0C71EAD77C600B80184 /* SHSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHSettings.swift; sourceTree = "<group>"; };
 		2E70D0C91EAD935800B80184 /* SHRequestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHRequestHelper.swift; sourceTree = "<group>"; };
-		2E70D0CB1EAD948000B80184 /* SHUserDefaultsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHUserDefaultsHelper.swift; sourceTree = "<group>"; };
+		2E70D0CB1EAD948000B80184 /* SHUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHUserDefaults.swift; sourceTree = "<group>"; };
 		2E70D0D61EAD96FE00B80184 /* SHGetConfigurationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHGetConfigurationRequest.swift; sourceTree = "<group>"; };
-		2E70D0D81EAD99EB00B80184 /* SHScreenFlowHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHScreenFlowHelper.swift; sourceTree = "<group>"; };
+		2E70D0D81EAD99EB00B80184 /* SHScreenFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHScreenFlow.swift; sourceTree = "<group>"; };
 		2E70D0DC1EAD9A3A00B80184 /* SHNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHNavigationController.swift; sourceTree = "<group>"; };
 		2E70D0DE1EAD9B0500B80184 /* SHHomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHHomeTableViewController.swift; sourceTree = "<group>"; };
 		2E70D0DF1EAD9B0500B80184 /* SHHomeTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHHomeTableViewController.xib; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 		2EDB93231EADEB840021AF0D /* SHSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHSearchTableViewCell.swift; sourceTree = "<group>"; };
 		2EDB93241EADEB840021AF0D /* SHSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHSearchTableViewCell.xib; sourceTree = "<group>"; };
 		2EDB93271EADF0570021AF0D /* SHGetSearchSerieRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHGetSearchSerieRequest.swift; sourceTree = "<group>"; };
-		2EDB93291EAE09780021AF0D /* SHRealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHRealmHelper.swift; sourceTree = "<group>"; };
+		2EDB93291EAE09780021AF0D /* SHRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHRealm.swift; sourceTree = "<group>"; };
 		2EDB93381EAE1F0A0021AF0D /* SHHomeHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHHomeHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		2EDB93391EAE1F0A0021AF0D /* SHHomeHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHHomeHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		2EDB933C1EAE298F0021AF0D /* SHHomeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHHomeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -237,11 +237,11 @@
 		2E70D0A31EAD72A500B80184 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				2E70D0C71EAD77C600B80184 /* SHSettingsHelper.swift */,
+				2E70D0C71EAD77C600B80184 /* SHSettings.swift */,
 				2E70D0C91EAD935800B80184 /* SHRequestHelper.swift */,
-				2E70D0CB1EAD948000B80184 /* SHUserDefaultsHelper.swift */,
-				2E70D0D81EAD99EB00B80184 /* SHScreenFlowHelper.swift */,
-				2EDB93291EAE09780021AF0D /* SHRealmHelper.swift */,
+				2E70D0CB1EAD948000B80184 /* SHUserDefaults.swift */,
+				2E70D0D81EAD99EB00B80184 /* SHScreenFlow.swift */,
+				2EDB93291EAE09780021AF0D /* SHRealm.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -655,7 +655,7 @@
 				2E70D0C21EAD738600B80184 /* SHGetRecomendedSeriesRequest.swift in Sources */,
 				2EDB933E1EAE298F0021AF0D /* SHHomeCollectionViewCell.swift in Sources */,
 				8317AD9E2042404500254763 /* SHHomeTableViewModel.swift in Sources */,
-				2E70D0CC1EAD948000B80184 /* SHUserDefaultsHelper.swift in Sources */,
+				2E70D0CC1EAD948000B80184 /* SHUserDefaults.swift in Sources */,
 				8317AD9C204239D200254763 /* SHSearchTableViewModel.swift in Sources */,
 				2E70D0B51EAD72D600B80184 /* UITableViewCell-Extension.swift in Sources */,
 				2E70D0D71EAD96FE00B80184 /* SHGetConfigurationRequest.swift in Sources */,
@@ -675,10 +675,10 @@
 				2EDB93281EADF0570021AF0D /* SHGetSearchSerieRequest.swift in Sources */,
 				2E70D0B41EAD72D600B80184 /* UICollectionViewCell-Extension.swift in Sources */,
 				2EDB931D1EADE1F00021AF0D /* UIButton-Extension.swift in Sources */,
-				2E70D0D91EAD99EB00B80184 /* SHScreenFlowHelper.swift in Sources */,
-				2E70D0C81EAD77C600B80184 /* SHSettingsHelper.swift in Sources */,
+				2E70D0D91EAD99EB00B80184 /* SHScreenFlow.swift in Sources */,
+				2E70D0C81EAD77C600B80184 /* SHSettings.swift in Sources */,
 				2EDB93251EADEB840021AF0D /* SHSearchTableViewCell.swift in Sources */,
-				2EDB932A1EAE09780021AF0D /* SHRealmHelper.swift in Sources */,
+				2EDB932A1EAE09780021AF0D /* SHRealm.swift in Sources */,
 				2E70D0B71EAD72DE00B80184 /* UIView-Extension.swift in Sources */,
 				2E60D4301EAD71080066C78E /* AppDelegate.swift in Sources */,
 				2E70D0ED1EADA77D00B80184 /* IOGrowHeader.swift in Sources */,
