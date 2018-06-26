@@ -9,14 +9,14 @@
 import UIKit
 
 class SHSplashViewController: UIViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         if SHUserDefaults.imageBaseURL.get() != nil {
             self.showHomeController()
         } else {
@@ -28,16 +28,15 @@ class SHSplashViewController: UIViewController {
             }
         }
     }
-    
+
     func showHomeController() {
         let vc = SHHomeTableViewController.instanceWithDefaultNib()
         let navigationController = SHNavigationController(rootViewController: vc)
-        
+
         let when = DispatchTime.now() + 4
         DispatchQueue.main.asyncAfter(deadline: when) {
             SHScreenFlow.shared.changeRootViewController(viewController: navigationController)
         }
     }
-    
-}
 
+}

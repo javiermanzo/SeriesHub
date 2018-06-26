@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 extension UIViewController {
     static internal func instanceWithDefaultNib() -> Self {
         let className = NSStringFromClass(self as AnyClass).components(separatedBy: ".").last
@@ -16,7 +15,7 @@ extension UIViewController {
     }
 }
 
-extension UIViewController : StoryboardIdentifiable { }
+extension UIViewController: StoryboardIdentifiable { }
 
 protocol StoryboardIdentifiable {
     static var storyboardIdentifier: String { get }

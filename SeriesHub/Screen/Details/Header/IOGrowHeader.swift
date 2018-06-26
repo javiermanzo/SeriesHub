@@ -11,33 +11,32 @@ import UIKit
 import IOStickyHeader
 import Kingfisher
 
-
 class IOGrowHeader: UICollectionViewCell {
-    
+
     @IBOutlet private var containerView: UIView!
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var yearLabel: UILabel!
     @IBOutlet private var imgPhoto: UIImageView!
     @IBOutlet weak var subscribeButton: UIButton!
     @IBOutlet private var constraintImgSize: NSLayoutConstraint!
-    
-    let imageHeaderWidth:CGFloat = 140
-    
+
+    let imageHeaderWidth: CGFloat = 140
+
     override func awakeFromNib() {
         self.imgPhoto.layer.cornerRadius = 4
         self.subscribeButton.circleView()
         self.setUpView()
     }
-    
+
     func setUpView() {
         self.containerView.backgroundColor = UIColor.red
         self.nameLabel.textColor = UIColor.green
         self.yearLabel.textColor = UIColor.blue
     }
-    
+
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
-        guard let layoutAttributes:IOStickyHeaderFlowLayoutAttributes = layoutAttributes as? IOStickyHeaderFlowLayoutAttributes else { return }
-        
+        guard let layoutAttributes: IOStickyHeaderFlowLayoutAttributes = layoutAttributes as? IOStickyHeaderFlowLayoutAttributes else { return }
+
         if layoutAttributes.progressiveness < 1 {
             self.constraintImgSize.constant = max(self.imageHeaderWidth * layoutAttributes.progressiveness, 60)
             self.imgPhoto.updateConstraintsIfNeeded()
@@ -46,8 +45,8 @@ class IOGrowHeader: UICollectionViewCell {
             self.imgPhoto.updateConstraintsIfNeeded()
         }
     }
-    
-    func setInfo(serie:SHSerie) {
+
+    func setInfo(serie: SHSerie) {
         self.nameLabel.text = serie.name
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-mm-dd"
@@ -63,5 +62,5 @@ class IOGrowHeader: UICollectionViewCell {
         }
         self.imgPhoto.kf.setImage(with: URL(string: serie.posterImageUrl), placeholder: nil, options: [.transition(.fade(1))], progressBlock: nil, completionHandler: nil)
     }
-    
+
 }

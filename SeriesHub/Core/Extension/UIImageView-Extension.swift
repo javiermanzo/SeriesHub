@@ -9,16 +9,16 @@
 import UIKit
 
 extension UIImageView {
-    
+
     func grayScale() {
         let context = CIContext(options: nil)
         if let currentFilter = CIFilter(name: "CIPhotoEffectTonal") {
             currentFilter.setValue(CIImage(image: self.image!), forKey: kCIInputImageKey)
             let output = currentFilter.outputImage
-            let cgimg = context.createCGImage(output!,from: output!.extent)
+            let cgimg = context.createCGImage(output!, from: output!.extent)
             let processedImage = UIImage(cgImage: cgimg!)
             self.image = processedImage
         }
     }
-        
+
 }

@@ -13,8 +13,8 @@ import UIKit
 
 open class IOStickyHeaderFlowLayoutAttributes: UICollectionViewLayoutAttributes {
   open var progressiveness: CGFloat = 1.0
-  open override var zIndex: Int{
-    didSet{
+  open override var zIndex: Int {
+    didSet {
       self.transform3D = CATransform3DMakeTranslation(0, 0, self.zIndex == 1 ? -1 :0)
     }
   }

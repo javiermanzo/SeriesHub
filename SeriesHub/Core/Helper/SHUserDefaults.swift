@@ -10,34 +10,34 @@ import Foundation
 
 enum SHUserDefaults: String {
     case imageBaseURL
-    
+
     func set(value: String) {
         self.setValue(value, forKey: self)
     }
-    
+
     func get() -> String? {
         return self.getValue(withKey: self)
     }
-    
+
     func clear() {
         self.clearValue(forKey: self)
     }
 }
 
 extension SHUserDefaults {
-    
-    fileprivate func getBundleIndentifier() -> String{
+
+    fileprivate func getBundleIndentifier() -> String {
         return Bundle.main.bundleIdentifier!
     }
-    
+
     fileprivate func setValue(_ value: String, forKey key: SHUserDefaults) {
-        
+
         let key = self.getBundleIndentifier() + "." + key.rawValue
         UserDefaults.standard.set(value, forKey: key)
         UserDefaults.standard.synchronize()
     }
-    
-    fileprivate func getValue(withKey key: SHUserDefaults) -> String?{
+
+    fileprivate func getValue(withKey key: SHUserDefaults) -> String? {
         let key = self.getBundleIndentifier() + "." + key.rawValue
         if let value = UserDefaults.standard.value(forKey: key) as? String {
             return value
@@ -45,7 +45,7 @@ extension SHUserDefaults {
             return nil
         }
     }
-    
+
     fileprivate  func clearValue(forKey key: SHUserDefaults) {
         let key = self.getBundleIndentifier() + "." + key.rawValue
         UserDefaults.standard.removeObject(forKey: key)

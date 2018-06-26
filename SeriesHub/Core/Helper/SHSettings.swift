@@ -11,15 +11,15 @@ import Foundation
 enum SHSettings: String {
     case apiKey = "api_key"
     case baseUrl = "base_url"
-    
+
     func value() -> String {
         let value = self.getValue(withKey: self)
         return value
     }
 }
 
-extension SHSettings{
-    fileprivate func getValue(withKey key: SHSettings) -> String{
+extension SHSettings {
+    fileprivate func getValue(withKey key: SHSettings) -> String {
         let plistName = "SHSettings"
         let key = key.rawValue
         if let path = Bundle.main.path(forResource: plistName, ofType: "plist"),

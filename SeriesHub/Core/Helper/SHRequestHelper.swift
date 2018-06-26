@@ -9,46 +9,46 @@
 import Foundation
 
 class SHRequestHelper {
-    
+
     private init() {}
-    
+
     static let shared = SHRequestHelper()
-    
-    func getRecomendedSeries(success:@escaping ( _ response:[SHSerie]) -> Void, failure:@escaping ( _ error:Error) -> Void){
-        
+
+    func getRecomendedSeries(success:@escaping ( _ response: [SHSerie]) -> Void, failure:@escaping ( _ error: Error) -> Void) {
+
         let getRecomendedSeriesRequest = SHGetRecomendedSeriesRequest()
-        
+
         getRecomendedSeriesRequest.request(success: { (data) in
             success(data)
         }) { (error) in
             failure(error)
         }
-        
+
     }
-    
-    func getConfiguration(success:@escaping (_ response:String) -> Void, failure:@escaping (_ error:Error) -> Void){
-        
+
+    func getConfiguration(success:@escaping (_ response: String) -> Void, failure:@escaping (_ error: Error) -> Void) {
+
         let configurationRequest = SHGetConfigurationRequest()
-        
+
         configurationRequest.requestGET(success: { (data) in
             success(data)
-            
+
         }) { (error) in
             failure(error)
-            
+
         }
     }
-    
-    func getSerieWithTitle(title:String, success:@escaping (_ response:[SHSerie]) -> Void, failure:@escaping (_ error:Error) -> Void){
-        
+
+    func getSerieWithTitle(title: String, success:@escaping (_ response: [SHSerie]) -> Void, failure:@escaping (_ error: Error) -> Void) {
+
         let serieWithTitleRequest = SHGetSerieWithTitleRequest()
-        
-        serieWithTitleRequest.request(title: title,  success: { (data) in
+
+        serieWithTitleRequest.request(title: title, success: { (data) in
             success(data)
-            
+
         }) { (error) in
             failure(error)
-            
+
         }
     }
 }

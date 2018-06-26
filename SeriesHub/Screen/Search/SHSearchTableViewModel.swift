@@ -13,18 +13,18 @@ protocol SHSearchTableViewModelDelegate: class {
 }
 
 class SHSearchTableViewModel {
-    
+
     weak var delegate: SHSearchTableViewModelDelegate?
-    
+
     init(delegate: SHSearchTableViewModelDelegate) {
         self.delegate = delegate
     }
-    
+
     func filterContentForSearchText(_ searchText: String) {
         SHRequestHelper.shared.getSerieWithTitle(title: searchText, success: { (data) in
             self.delegate?.showResults(series: data)
         }) { (error) in
-            print(error) 
+            print(error)
         }
     }
 }

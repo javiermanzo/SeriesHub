@@ -8,24 +8,24 @@
 
 import UIKit
 
-class SHSearchTableViewController: UITableViewController  {
-    
+class SHSearchTableViewController: UITableViewController {
+
     lazy var viewModel = SHSearchTableViewModel(delegate: self)
     let searchController = UISearchController(searchResultsController: nil)
     var listSeries = [SHSerie]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView()
         self.tableView.register(SHSearchTableViewCell.cellNib, forCellReuseIdentifier: SHSearchTableViewCell.idCell)
         self.setUpSearchBar()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
          self.perform(#selector(showKeyboard), with: nil, afterDelay: 0.100)
     }
-    
+
     func setUpSearchBar() {
         self.searchController.searchResultsUpdater = self
         self.searchController.searchBar.delegate = self
@@ -43,7 +43,7 @@ class SHSearchTableViewController: UITableViewController  {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
@@ -53,57 +53,57 @@ class SHSearchTableViewController: UITableViewController  {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
+
         if let cell = tableView.dequeueReusableCell(withIdentifier: SHSearchTableViewCell.idCell, for: indexPath) as? SHSearchTableViewCell {
             let serie = self.listSeries[indexPath.row]
             cell.subscribeButton.tag = indexPath.row
             cell.subscribeButton.addTarget(self, action: #selector(subscribeAction), for: .touchUpInside)
-            
+
             if SHRealm.shared.isSubscribed(serie: serie) {
                 cell.setSelectedButton()
             } else {
                 cell.setUnselectedButton()
             }
-            
+
             cell.setInfo(serie: serie)
             return cell
         }
         return UITableViewCell()
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let serie = self.listSeries[indexPath.row]
         let vc = SHDetailsViewController(serie: serie)
         self.present(vc, animated: true, completion: nil)
     }
-    
+
     @objc func showKeyboard() {
         self.searchController.searchBar.becomeFirstResponder()
     }
-    
+
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         self.searchController.searchBar.resignFirstResponder()
     }
-    
-    @objc func subscribeAction(sender:UIButton) {
-        
+
+    @objc func subscribeAction(sender: UIButton) {
+
         let serie = self.listSeries[sender.tag]
-        
+
         if SHRealm.shared.isSubscribed(serie: serie) {
             SHRealm.shared.removeSerie(serie: serie)
         } else {
             SHRealm.shared.addSerie(serie: serie)
         }
-        
+
         let indexPath = IndexPath(item: sender.tag, section: 0)
         tableView.reloadRows(at: [indexPath], with: .fade)
     }
 }
 
 extension SHSearchTableViewController: UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating {
-    
+
     func updateSearchResults(for searchController: UISearchController) {
-        if let searchText =  searchController.searchBar.text, searchText.count > 2 {
+        if let searchText = searchController.searchBar.text, searchText.count > 2 {
             self.viewModel.filterContentForSearchText(searchText)
         }
     }

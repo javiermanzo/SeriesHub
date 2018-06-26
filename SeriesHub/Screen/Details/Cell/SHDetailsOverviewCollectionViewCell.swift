@@ -11,12 +11,12 @@ import UIKit
 class SHDetailsOverviewCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private var overviewTextView: UITextView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
-    func setInfo(serie:SHSerie) {
+
+    func setInfo(serie: SHSerie) {
         self.overviewTextView.text = serie.overview
     }
 }

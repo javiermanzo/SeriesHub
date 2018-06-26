@@ -13,13 +13,13 @@ protocol SHHomeTableViewModelDelegate: class {
 }
 
 class SHHomeTableViewModel {
-    
+
     weak var delegate: SHHomeTableViewModelDelegate?
-    
+
     init(delegate: SHHomeTableViewModelDelegate) {
         self.delegate = delegate
     }
-    
+
     func getRecomendedSeries() {
         SHRequestHelper.shared.getRecomendedSeries(success: { (series) in
             self.delegate?.showResults(series: series)

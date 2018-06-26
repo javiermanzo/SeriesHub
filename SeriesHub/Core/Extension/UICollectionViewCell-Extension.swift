@@ -9,13 +9,13 @@
 import UIKit
 
 extension UICollectionViewCell {
-    
+
     static var idCell: String {
         return String(describing: self.self)
     }
-    
+
     static var cellNib: UINib {
         return UINib(nibName: idCell, bundle: nil)
     }
-    
+
 }

@@ -9,13 +9,13 @@
 import UIKit
 
 extension UIButton {
-    
+
     enum SHButtonState: String {
         case subscribe = "SUBSCRIBE"
         case subscribed = "SUBSCRIBED"
     }
-    
-    func setUnselected(color:UIColor) {
+
+    func setUnselected(color: UIColor) {
         self.clipsToBounds = true
         self.backgroundColor = UIColor.red
         self.layer.borderWidth = 2
@@ -23,12 +23,12 @@ extension UIButton {
         self.setTitleColor(color, for: UIControlState.normal)
         self.setTitle(SHButtonState.subscribe.rawValue, for: .normal)
     }
-    
-    func setSelected(color:UIColor) {
+
+    func setSelected(color: UIColor) {
         self.clipsToBounds = true
-        self.backgroundColor  = color
+        self.backgroundColor = color
         self.setTitleColor(UIColor.blue, for: UIControlState.normal)
         self.setTitle(SHButtonState.subscribed.rawValue, for: .normal)
     }
-    
+
 }
