@@ -1,16 +1,16 @@
 PODS:
   - AICustomViewControllerTransition (1.1.2)
-  - Alamofire (4.6.0)
-  - AlamofireNetworkActivityIndicator (2.2.0):
-    - Alamofire (~> 4.5)
+  - Alamofire (4.7.2)
+  - AlamofireNetworkActivityIndicator (2.2.1):
+    - Alamofire (~> 4.7)
   - IOStickyHeader (1.0.1)
-  - Kingfisher (4.6.1)
+  - Kingfisher (4.6.4)
   - Realm (3.1.1):
     - Realm/Headers (= 3.1.1)
   - Realm/Headers (3.1.1)
   - RealmSwift (3.1.1):
     - Realm (= 3.1.1)
-  - SwiftyJSON (3.1.4)
+  - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
   - AICustomViewControllerTransition
@@ -21,16 +21,27 @@ DEPENDENCIES:
   - RealmSwift (~> 3.1.1)
   - SwiftyJSON
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AICustomViewControllerTransition
+    - Alamofire
+    - AlamofireNetworkActivityIndicator
+    - IOStickyHeader
+    - Kingfisher
+    - Realm
+    - RealmSwift
+    - SwiftyJSON
+
 SPEC CHECKSUMS:
   AICustomViewControllerTransition: d6e717749c789d09ffedf38fa13a83c058c350b1
-  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  AlamofireNetworkActivityIndicator: 81e1630e7cfed22a4e4e82a174c59e651dc4f8ca
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  AlamofireNetworkActivityIndicator: aeac50e6ecb78ec71a5f1f29098bcf4ec2962910
   IOStickyHeader: 8b48006d9dbf0e274b872246ea6034783dacd1f5
-  Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
+  Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
   Realm: 42d1c38a5b1bbcc828b48a7ce702cb86fc68adf4
   RealmSwift: d31937ca6a6ee54acde64ec839523c0a3c04924b
-  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
 PODFILE CHECKSUM: 60788c88db20feb2deee38b1be475941c078fe9e
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

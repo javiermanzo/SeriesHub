@@ -11,9 +11,9 @@ import Kingfisher
 
 class SHSearchTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var serieImageView: UIImageView!
-    @IBOutlet weak var subscribeButton: UIButton!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet private var serieImageView: UIImageView!
+    @IBOutlet var subscribeButton: UIButton!
+    @IBOutlet private var nameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

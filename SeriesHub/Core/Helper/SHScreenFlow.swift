@@ -17,10 +17,10 @@ class SHScreenFlow {
     
     let appDelegate = UIApplication.shared.delegate
     
-    func changeRootViewController(viewController: UIViewController!) {
+    func changeRootViewController(viewController: UIViewController) {
         if let appDelegate = self.appDelegate as? AppDelegate,
             let snapshot = (appDelegate.window?.snapshotView(afterScreenUpdates: true)){
-            viewController?.view.addSubview(snapshot)
+            viewController.view.addSubview(snapshot)
             
             appDelegate.window?.rootViewController = viewController
             
