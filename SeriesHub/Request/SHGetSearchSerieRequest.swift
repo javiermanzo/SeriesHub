@@ -36,13 +36,13 @@ class SHGetSerieWithTitleRequest: SHRequestProtocol {
     func parseRequest(data: Any) -> [SHSerie] {
         var listSeries = [SHSerie]()
 
-        let array = data as! NSArray
-
-        for seiredData in array {
-            if let dic = seiredData as? Dictionary<AnyHashable, Any> {
-                if let overview = dic["poster_path"] as? String, overview != "" {
-                    let serie = SHSerie.create(data: (seiredData as? Dictionary)!)
-                    listSeries.append(serie)
+        if let array = data as? NSArray {
+            for seiredData in array {
+                if let dic = seiredData as? Dictionary<AnyHashable, Any> {
+                    if let overview = dic["poster_path"] as? String, overview != "" {
+                        let serie = SHSerie.create(data: dic)
+                        listSeries.append(serie)
+                    }
                 }
             }
         }

@@ -47,7 +47,8 @@ class SHHomeTableViewController: UITableViewController {
     }
 
     func setUpHeader() {
-        if let header = SHHomeHeaderTableViewCell.instanceWithDefaultNib() as? SHHomeHeaderTableViewCell, SHRealm.shared.getSeriesList().count > 0 {
+        if let header = SHHomeHeaderTableViewCell.instanceWithDefaultNib() as? SHHomeHeaderTableViewCell,
+            let seriesList = SHRealm.shared.getSeriesList(), !seriesList.isEmpty {
             self.tableView.tableHeaderView = header
             header.delegate = self
             header.reload()

@@ -50,21 +50,27 @@ extension SHHomeHeaderTableViewCell: UICollectionViewDelegate, UICollectionViewD
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.listSubscribedSeries.count
+        if let listSubscribedSeries = self.listSubscribedSeries {
+            return listSubscribedSeries.count
+        } else {
+            return 0
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SHHomeCollectionViewCell.idCell, for: indexPath) as? SHHomeCollectionViewCell {
-            let serie = self.listSubscribedSeries[indexPath.row]
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SHHomeCollectionViewCell.idCell, for: indexPath) as? SHHomeCollectionViewCell,
+            let listSubscribedSeries = self.listSubscribedSeries {
+            let serie = listSubscribedSeries[indexPath.row]
             cell.setInfo(serie: serie)
             return cell
         }
-
         return UICollectionViewCell()
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let serie = self.listSubscribedSeries[indexPath.row]
-        self.delegate?.presentSerieDetails(serie: serie)
+        if let listSubscribedSeries = self.listSubscribedSeries {
+            let serie = listSubscribedSeries[indexPath.row]
+            self.delegate?.presentSerieDetails(serie: serie)
+        }
     }
 }

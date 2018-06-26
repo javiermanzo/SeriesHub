@@ -26,29 +26,38 @@ enum SHUserDefaults: String {
 
 extension SHUserDefaults {
 
-    fileprivate func getBundleIndentifier() -> String {
-        return Bundle.main.bundleIdentifier!
+    fileprivate func getBundleIndentifier() -> String? {
+        return Bundle.main.bundleIdentifier
     }
 
     fileprivate func setValue(_ value: String, forKey key: SHUserDefaults) {
 
-        let key = self.getBundleIndentifier() + "." + key.rawValue
-        UserDefaults.standard.set(value, forKey: key)
-        UserDefaults.standard.synchronize()
-    }
-
-    fileprivate func getValue(withKey key: SHUserDefaults) -> String? {
-        let key = self.getBundleIndentifier() + "." + key.rawValue
-        if let value = UserDefaults.standard.value(forKey: key) as? String {
-            return value
-        } else {
-            return nil
+        if let bundle = self.getBundleIndentifier() {
+            let key = bundle + "." + key.rawValue
+            UserDefaults.standard.set(value, forKey: key)
+            UserDefaults.standard.synchronize()
         }
     }
 
+    fileprivate func getValue(withKey key: SHUserDefaults) -> String? {
+        if let bundle = self.getBundleIndentifier() {
+            let key = bundle + "." + key.rawValue
+            if let value = UserDefaults.standard.value(forKey: key) as? String {
+                return value
+            } else {
+                return nil
+            }
+        } else {
+            return nil
+        }
+
+    }
+
     fileprivate  func clearValue(forKey key: SHUserDefaults) {
-        let key = self.getBundleIndentifier() + "." + key.rawValue
-        UserDefaults.standard.removeObject(forKey: key)
-        UserDefaults.standard.synchronize()
+        if let bundle = self.getBundleIndentifier() {
+            let key = bundle + "." + key.rawValue
+            UserDefaults.standard.removeObject(forKey: key)
+            UserDefaults.standard.synchronize()
+        }
     }
 }

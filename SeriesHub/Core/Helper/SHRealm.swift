@@ -15,20 +15,25 @@ class SHRealm {
 
     static let shared = SHRealm()
 
-    let realm = try! Realm()
+    func persistSeriesListData(data: NSArray) -> Results<SHSerie>? {
 
-    func persistSeriesListData(data: NSArray) -> Results<SHSerie> {
+        guard let realm = try? Realm() else {
+            return nil
+        }
 
-        var seriesList: Results<SHSerie> = { self.realm.objects(SHSerie.self) }()
+        var seriesList: Results<SHSerie> = { realm.objects(SHSerie.self) }()
 
-        try! realm.write() {
+        do {
+            try realm.write() {
+                realm.deleteAll()
 
-            realm.deleteAll()
-
-            for serieData in data {
-                let serie = SHSerie.create(data: serieData as! Dictionary<AnyHashable, Any>)
-                self.realm.add(serie)
+                for serieData in data {
+                    let serie = SHSerie.create(data: serieData as! Dictionary<AnyHashable, Any>)
+                    realm.add(serie)
+                }
             }
+        } catch {
+            return nil
         }
 
         seriesList = realm.objects(SHSerie.self)
@@ -37,24 +42,43 @@ class SHRealm {
     }
 
     func addSerie(serie: SHSerie) {
-        try! realm.write {
-            if realm.objects(SHSerie.self).filter("id == '" + serie.id + "'").first != nil {
-                serie.deleted = false
-                realm.add(serie, update: true)
-            } else {
-                realm.add(serie)
+        guard let realm = try? Realm() else {
+            return
+        }
+
+        do {
+            try realm.write() {
+                if realm.objects(SHSerie.self).filter("id == '" + serie.id + "'").first != nil {
+                    serie.deleted = false
+                    realm.add(serie, update: true)
+                } else {
+                    realm.add(serie)
+                }
             }
+        } catch {
+            return
         }
     }
 
     func removeSerie(serie: SHSerie) {
-        try! realm.write {
+        guard let realm = try? Realm() else {
+            return
+        }
+
+        do {
+            try realm.write() {
             serie.deleted = true
             realm.add(serie, update: true)
+            }
+        } catch {
+                return
         }
     }
 
     func isSubscribed(serie: SHSerie) -> Bool {
+        guard let realm = try? Realm() else {
+            return false
+        }
         if realm.objects(SHSerie.self).filter("id == '" + serie.id + "' AND deleted == false").first != nil {
             return true
         } else {
@@ -62,8 +86,12 @@ class SHRealm {
         }
     }
 
-    func getSeriesList() -> Results<SHSerie> {
-        var seriesList: Results<SHSerie> = { self.realm.objects(SHSerie.self) }()
+    func getSeriesList() -> Results<SHSerie>? {
+        guard let realm = try? Realm() else {
+            return nil
+        }
+
+        var seriesList: Results<SHSerie> = { realm.objects(SHSerie.self) }()
 
         seriesList = realm.objects(SHSerie.self).filter("deleted == false")
 
